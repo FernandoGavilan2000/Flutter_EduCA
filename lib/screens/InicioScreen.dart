@@ -43,7 +43,7 @@ class InicioScreen extends StatelessWidget {
                         Expanded(child: Image.asset('assets/avatar_girl.png'))
                       ]),
                 ),
-                InkWell(
+                GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushNamed('/login');
                   },
@@ -54,7 +54,7 @@ class InicioScreen extends StatelessWidget {
           ),
           decoration: const BoxDecoration(
               image: DecorationImage(
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fitWidth,
                   image: AssetImage('assets/LoginBackground.png'))),
         ),
       ),

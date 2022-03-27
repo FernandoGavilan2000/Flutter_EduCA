@@ -35,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                 const Text('Input UserName'),
                 const Text('Input Password'),
                 //------------------ Marcilla Inputs ------------------
-                InkWell(
+                GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushNamed('/home');
                   },
