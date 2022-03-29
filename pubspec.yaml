@@ -64,6 +64,12 @@ flutter:
     - assets/avatar_dog.png
     - assets/avatar_girl.png
     - assets/trophy.png
+    - assets/audios.png
+    - assets/lec.png
+    - assets/quizes.png
+    - assets/videos.png
+    - assets/blueVector.png
+    - assets/whiteVector.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

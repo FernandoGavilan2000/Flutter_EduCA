@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/screens/AudiosScreen.dart';
 import 'package:flutter_educa/screens/CourseScreen.dart';
 import 'package:flutter_educa/screens/HomeScreen.dart';
 import 'package:flutter_educa/screens/InicioScreen.dart';
+import 'package:flutter_educa/screens/LecturasScreen.dart';
 import 'package:flutter_educa/screens/LoginScreen.dart';
+import 'package:flutter_educa/screens/QuizesScreen.dart';
 import 'package:flutter_educa/screens/RecursosScreen.dart';
+import 'package:flutter_educa/screens/VideosScreen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -20,6 +24,14 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => CourseScreen(data: args));
       case '/recursos':
         return MaterialPageRoute(builder: (_) => const RecursosScreen());
+      case '/quizes':
+        return MaterialPageRoute(builder: (_) => const QuizesScreen());
+      case '/audios':
+        return MaterialPageRoute(builder: (_) => const AudiosScreen());
+      case '/lecturas':
+        return MaterialPageRoute(builder: (_) => const LecturasScreen());
+      case '/videos':
+        return MaterialPageRoute(builder: (_) => const VideosScreen());
       default:
         return MaterialPageRoute(builder: (_) => const InicioScreen());
     }
