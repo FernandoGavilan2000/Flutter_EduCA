@@ -7,6 +7,11 @@ The remarkable educational gap between the urban and rural sector in Peru, durin
 -To ensure that all students acquire the theoretical and practical knowledge necessary to promote sustainable development.
 -To significantly increase the number of young people and adults who have the necessary skills.
 
+## Flutter_Project:
+[Flutter](https://github.com/FernandoGavilan2000/Flutter_EduCA)
+## Node_Backend:
+[Node_API](https://github.com/FernandoGavilan2000/API_REST-HACKUNICA)
+
 ## Images:
 ![Image text](https://firebasestorage.googleapis.com/v0/b/api-hackunica.appspot.com/o/assets%2Fcapturas%2FInicio%20(2).png?alt=media&token=ca699577-75e1-42de-aabf-54eeb8f68f9c)
 ![Image text](https://firebasestorage.googleapis.com/v0/b/api-hackunica.appspot.com/o/assets%2Fcapturas%2FHome%20(1).png?alt=media&token=0370984b-1ddb-4d09-b6e7-9ac5de0a7434)
