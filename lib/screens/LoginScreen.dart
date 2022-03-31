@@ -36,12 +36,11 @@ class LoginScreen extends StatelessWidget {
                   height: 100,
                 ),
                 //------------------ Marcilla Inputs ------------------
-                input('Nombre'),
+                const InputField(text: 'UserName'),
                 const SizedBox(
                   height: 20,
                 ),
-                input('Contraseña'),
-
+                const InputField(text: 'Password'),
                 const SizedBox(
                   height: 60,
                 ),
@@ -64,23 +63,30 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget input(String text) {
+class InputField extends StatelessWidget {
+  const InputField({Key? key, required this.text}) : super(key: key);
+
+  final String text;
+  @override
+  Widget build(BuildContext context) {
     return Container(
       width: 280,
-      child: const TextField(
-        style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
-        cursorColor: Color.fromARGB(255, 110, 59, 230),
+      child: TextField(
+        style:
+            const TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
+        cursorColor: const Color.fromARGB(255, 110, 59, 230),
         decoration: InputDecoration(
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(255, 216, 206, 250)),
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
-          labelText: 'Nombre',
+          labelText: text,
           filled: true,
           fillColor: Colors.white,
           // contentPadding: EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color.fromARGB(255, 216, 206, 250)),
               borderRadius: BorderRadius.all(Radius.circular(10))),
         ),
