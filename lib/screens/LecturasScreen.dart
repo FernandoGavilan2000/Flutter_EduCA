@@ -168,13 +168,13 @@ class CardLecture extends StatelessWidget {
         width: double.infinity,
         margin: EdgeInsets.only(bottom: 18),
         height: 140,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(25),
                 topRight: Radius.circular(25))),
         child: IntrinsicHeight(
-          child: Row(children: [
+          child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             Expanded(
                 flex: 1,
                 child: Container(

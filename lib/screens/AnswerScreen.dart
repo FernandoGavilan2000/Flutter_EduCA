@@ -62,7 +62,7 @@ class AnswerScreen extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(35))),
                   margin:
                       EdgeInsets.all(MediaQuery.of(context).size.width * 0.1),
-                  padding: EdgeInsets.all(30),
+                  padding: EdgeInsets.all(28),
                   width: double.infinity,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

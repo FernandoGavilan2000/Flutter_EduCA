@@ -9,7 +9,8 @@ class RecursosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double categoryHeight = MediaQuery.of(context).size.height * 0.28;
-    const double categoryWidth = 220;
+    final double categoryWidth = MediaQuery.of(context).size.width * 0.40;
+    final double space = MediaQuery.of(context).size.width * 0.06;
     return SafeArea(
         child: Container(
             decoration: const BoxDecoration(
@@ -22,8 +23,7 @@ class RecursosScreen extends StatelessWidget {
               body: SingleChildScrollView(
                 child: Container(
                   width: double.infinity,
-                  margin:
-                      EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
+                  margin: EdgeInsets.all(space),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -45,7 +45,7 @@ class RecursosScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 25,
                       ),
                       Center(
                         child: Container(
@@ -60,24 +60,28 @@ class RecursosScreen extends StatelessWidget {
                                     categoryWidth: categoryWidth,
                                     resourceName: "Lecturas",
                                     pathImage: "assets/lec.png",
+                                    colorImage:
+                                        Color.fromARGB(255, 159, 144, 235),
                                     colorFondo:
                                         const Color.fromRGBO(236, 232, 255, 1),
                                   ),
-                                  const SizedBox(
-                                    width: 25,
+                                  SizedBox(
+                                    width: space,
                                   ),
                                   CardResource(
                                     categoryHeight: categoryHeight,
                                     categoryWidth: categoryWidth,
                                     resourceName: "Quizes",
                                     pathImage: "assets/quizes.png",
+                                    colorImage:
+                                        Color.fromARGB(255, 143, 238, 168),
                                     colorFondo:
                                         const Color.fromRGBO(210, 251, 221, 1),
                                   )
                                 ],
                               ),
                               const SizedBox(
-                                height: 35,
+                                height: 30,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -87,6 +91,8 @@ class RecursosScreen extends StatelessWidget {
                                     categoryWidth: categoryWidth,
                                     resourceName: "Audios",
                                     pathImage: "assets/audios.png",
+                                    colorImage:
+                                        Color.fromARGB(255, 241, 184, 179),
                                     colorFondo:
                                         const Color.fromRGBO(254, 234, 232, 1),
                                   ),
@@ -98,11 +104,13 @@ class RecursosScreen extends StatelessWidget {
                                     categoryWidth: categoryWidth,
                                     resourceName: "Videos",
                                     pathImage: "assets/videos.png",
+                                    colorImage:
+                                        Color.fromARGB(255, 167, 214, 241),
                                     colorFondo:
                                         const Color.fromRGBO(212, 239, 255, 1),
                                   )
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -122,7 +130,7 @@ class CardResource extends StatelessWidget {
     required this.categoryWidth,
     required this.resourceName,
     required this.colorFondo,
-    // required this.colorFondo,
+    required this.colorImage,
     required this.pathImage,
   }) : super(key: key);
 
@@ -130,7 +138,7 @@ class CardResource extends StatelessWidget {
   final double categoryWidth;
   final String resourceName;
   final Color colorFondo;
-  // final String colorFondo;
+  final Color colorImage;
   final String pathImage;
 
   @override
@@ -156,7 +164,8 @@ class CardResource extends StatelessWidget {
         }
       },
       child: Container(
-        width: 140,
+        constraints: const BoxConstraints(minWidth: 100, maxWidth: 160),
+        width: categoryWidth,
         height: categoryHeight,
         margin: const EdgeInsets.only(),
         decoration: BoxDecoration(
@@ -173,8 +182,9 @@ class CardResource extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Expanded(
-                  flex: 75,
+                  flex: 70,
                   child: Container(
+                      padding: EdgeInsets.all(22),
                       width: double.infinity,
                       height: 170,
                       decoration: BoxDecoration(
@@ -182,10 +192,12 @@ class CardResource extends StatelessWidget {
                           borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(20.00),
                               topRight: Radius.circular(20.00))),
-                      child: Image.asset('$pathImage')),
+                      child: CircleAvatar(
+                          backgroundColor: colorImage,
+                          child: Image.asset('$pathImage'))),
                 ),
                 Expanded(
-                  flex: 25,
+                  flex: 30,
                   child: Container(
                     width: double.infinity,
                     decoration: const BoxDecoration(
@@ -194,10 +206,11 @@ class CardResource extends StatelessWidget {
                             bottomLeft: Radius.circular(20.00),
                             bottomRight: Radius.circular(20.00))),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomText(
                           text: resourceName,
-                          fontSize: 20,
+                          fontSize: 24,
                           bold: true,
                         ),
                         const CustomText(
