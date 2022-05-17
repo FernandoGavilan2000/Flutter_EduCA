@@ -1,7 +1,7 @@
 <h1 align="center">Welcome 👋, EduCA_Solution Challenge2022</h1>
 <h3 align="center">The remarkable educational gap between the urban and rural sector in Peru, during the Covid19, evidenced the poor educational system to meet the needs of students and teachers in the rural sector, this has led my team to propose an educational solution through competency-based learning</h3>
 
-- 📝 Objectives **-To ensure that all students acquire the theoretical and practical knowledge necessary to promote sustainable development.**
+- 📝 Objectives **1.To ensure that all students acquire the theoretical and practical knowledge necessary to promote sustainable development. 2.To significantly increase the number of young people and adults who have the necessary skills.**
 
 - 🤝 Members **Zidenine Blue Calderón Quiroga, Fernando Gavilán Hernández , Josué Marcilla Díaz, Anthony Leonel Mosquera Hernández**
 

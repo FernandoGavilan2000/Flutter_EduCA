@@ -23,7 +23,7 @@ class _VideosScreenState extends State<VideosScreen> {
   }
 
   getVideosAPI() async {
-    videos = await RemoteService().getVideos("Elementos de la Comunicacion");
+    videos = await RemoteService().getVideos("comunicacion");
     if (videos != null) {
       setState(() {
         isLoaded = true;

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/models/reading.dart';
+import 'package:flutter_educa/services/remote_service.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 
 import '../widgets/Text/CustomText.dart';
@@ -99,45 +101,7 @@ class LecturasScreen extends StatelessWidget {
                       ]),
                 ),
                 const SizedBox(height: 50),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(10),
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(69, 84, 255, 1),
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50))),
-                  child: Container(
-                    margin: EdgeInsets.all(
-                        MediaQuery.of(context).size.width * 0.01),
-                    child: Column(children: const [
-                      SizedBox(
-                        height: 30,
-                      ),
-                      CardLecture(
-                        title: 'El Caballero Carmelo',
-                        urlImage:
-                            'https://www.crisol.com.pe/media/catalog/product/cache/e5cc2c691f06511cdf7342631ad45b04/9/7/9786123050566_ahxt12pqu7v4n68z.jpg',
-                        descrip:
-                            'El cuento se inicia con la llegada de Roberto a casa después de una larga ausencia que dejó a la familia en la más completa tristeza. Roberto regresó cabalgando un hermoso caballo de paso y trayendo  regalos a sus seres queridos.',
-                      ),
-                      CardLecture(
-                        title: 'Los Gallinazos sin Plumas',
-                        urlImage:
-                            'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1547605742l/43584858._SX318_.jpg',
-                        descrip:
-                            ' Es un cuento escrito por el cuentista y novelista peruano Julio Ramón Ribeyro aparecido en su primer libro de cuentos del mismo nombre (1955); también figura en La palabra del mudo, que es una recopilación de cuentos escritos entre 1955 y 1977. ',
-                      ),
-                      CardLecture(
-                        title: 'El Bagrecico',
-                        urlImage:
-                            'http://3.bp.blogspot.com/-a41SKIuaS9k/UA2t2upBEWI/AAAAAAAAAQw/hMuMrzMzIbU/s1600/El+Bagrecico.jpg',
-                        descrip:
-                            'El resumen  de la obra el bragrecico de francisco izquierdo es el siguiente: Un anciano bagre de barbas muy largas decía con su voz ronca en el penumbroso remanso de un riachuelo de selva peruana; yo conozco el mar cuando fui joven he viajado a el y he vuelto.  ',
-                      )
-                    ]),
-                  ),
-                )
+                Lecturas()
               ],
             ),
           ),
@@ -145,6 +109,74 @@ class LecturasScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class Lecturas extends StatefulWidget {
+  const Lecturas({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<Lecturas> createState() => _LecturasState();
+}
+
+class _LecturasState extends State<Lecturas> {
+  List<Reading>? readings;
+  var isLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    //Fetch Data Videos
+    getReadingsAPI();
+  }
+
+  getReadingsAPI() async {
+    readings = await RemoteService().getReadings("comunicacion");
+    if (readings != null) {
+      setState(() {
+        isLoaded = true;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      constraints: BoxConstraints(minHeight: 600),
+      padding: const EdgeInsets.all(10),
+      decoration: const BoxDecoration(
+          color: Color.fromRGBO(69, 84, 255, 1),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(50), topRight: Radius.circular(50))),
+      child: Visibility(
+        visible: isLoaded,
+        replacement: const Center(
+            child: CircularProgressIndicator(
+          color: Colors.white,
+        )),
+        child: Container(
+          margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.01),
+          child: Column(children: ListReadings(readings)),
+        ),
+      ),
+    );
+  }
+}
+
+List<CardLecture> ListReadings(List<Reading>? readings) {
+  List<CardLecture> list_readings = [];
+  if (readings != null) {
+    for (var item in readings) {
+      list_readings.add(CardLecture(
+        title: item.titulo,
+        descrip: item.contenido,
+        urlImage: item.imagen,
+      ));
+    }
+  }
+  return list_readings;
 }
 
 class CardLecture extends StatelessWidget {
@@ -166,7 +198,7 @@ class CardLecture extends StatelessWidget {
       },
       child: Container(
         width: double.infinity,
-        margin: EdgeInsets.only(bottom: 18),
+        margin: const EdgeInsets.only(top: 20),
         height: 140,
         decoration: const BoxDecoration(
             color: Colors.white,
@@ -185,7 +217,7 @@ class CardLecture extends StatelessWidget {
             Expanded(
               flex: 3,
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
                     CustomSubTitle(
@@ -195,8 +227,10 @@ class CardLecture extends StatelessWidget {
                     ),
                     Text(
                       descrip,
+                      maxLines: 6,
+                      overflow: TextOverflow.clip,
                       textAlign: TextAlign.justify,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                       ),
                     ),
@@ -218,9 +252,9 @@ class CardNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 15),
+      margin: const EdgeInsets.only(right: 15),
       decoration: BoxDecoration(
-        color: Color.fromRGBO(69, 84, 255, 1),
+        color: const Color.fromRGBO(69, 84, 255, 1),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Center(
