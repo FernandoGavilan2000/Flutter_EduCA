@@ -194,7 +194,8 @@ class CardLecture extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed('/lectura_demo');
+        Navigator.of(context).pushNamed('/lectura_demo',
+            arguments: {'title': title, 'image': urlImage, 'text': descrip});
       },
       child: Container(
         width: double.infinity,

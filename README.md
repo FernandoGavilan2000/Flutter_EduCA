@@ -9,7 +9,6 @@
 
 - 📫 How to reach us **20171720@unica.edu.pe**
 
-<h3 align="left">Connect with me:</h3>
 <p align="left">
 </p>
 
