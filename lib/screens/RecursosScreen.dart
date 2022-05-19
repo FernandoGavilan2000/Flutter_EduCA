@@ -60,8 +60,8 @@ class RecursosScreen extends StatelessWidget {
                                     categoryWidth: categoryWidth,
                                     resourceName: "Lecturas",
                                     pathImage: "assets/lec.png",
-                                    colorImage:
-                                        Color.fromARGB(255, 159, 144, 235),
+                                    colorImage: const Color.fromARGB(
+                                        255, 159, 144, 235),
                                     colorFondo:
                                         const Color.fromRGBO(236, 232, 255, 1),
                                   ),
@@ -73,8 +73,8 @@ class RecursosScreen extends StatelessWidget {
                                     categoryWidth: categoryWidth,
                                     resourceName: "Quizes",
                                     pathImage: "assets/quizes.png",
-                                    colorImage:
-                                        Color.fromARGB(255, 143, 238, 168),
+                                    colorImage: const Color.fromARGB(
+                                        255, 143, 238, 168),
                                     colorFondo:
                                         const Color.fromRGBO(210, 251, 221, 1),
                                   )
@@ -91,8 +91,8 @@ class RecursosScreen extends StatelessWidget {
                                     categoryWidth: categoryWidth,
                                     resourceName: "Audios",
                                     pathImage: "assets/audios.png",
-                                    colorImage:
-                                        Color.fromARGB(255, 241, 184, 179),
+                                    colorImage: const Color.fromARGB(
+                                        255, 241, 184, 179),
                                     colorFondo:
                                         const Color.fromRGBO(254, 234, 232, 1),
                                   ),
@@ -104,8 +104,8 @@ class RecursosScreen extends StatelessWidget {
                                     categoryWidth: categoryWidth,
                                     resourceName: "Videos",
                                     pathImage: "assets/videos.png",
-                                    colorImage:
-                                        Color.fromARGB(255, 167, 214, 241),
+                                    colorImage: const Color.fromARGB(
+                                        255, 167, 214, 241),
                                     colorFondo:
                                         const Color.fromRGBO(212, 239, 255, 1),
                                   )
@@ -184,7 +184,7 @@ class CardResource extends StatelessWidget {
                 Expanded(
                   flex: 70,
                   child: Container(
-                      padding: EdgeInsets.all(22),
+                      padding: const EdgeInsets.all(22),
                       width: double.infinity,
                       height: 170,
                       decoration: BoxDecoration(

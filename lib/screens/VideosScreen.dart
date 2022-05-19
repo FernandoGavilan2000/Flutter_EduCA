@@ -1,3 +1,5 @@
+import 'package:flutter_educa/providers/Course.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/services/remote_service.dart';
@@ -6,7 +8,6 @@ import '../models/videos.dart';
 
 class VideosScreen extends StatefulWidget {
   const VideosScreen({Key? key}) : super(key: key);
-
   @override
   State<VideosScreen> createState() => _VideosScreenState();
 }
@@ -33,6 +34,7 @@ class _VideosScreenState extends State<VideosScreen> {
 
   @override
   Widget build(BuildContext context) {
+    //String courseName = Provider.of<CourseProvider>(context).courseName;
     return SafeArea(
       child: Container(
         decoration: const BoxDecoration(

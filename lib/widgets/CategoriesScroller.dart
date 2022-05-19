@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/providers/Course.dart';
+import 'package:provider/provider.dart';
 
 class CategoriesScroller extends StatelessWidget {
   const CategoriesScroller({Key? key}) : super(key: key);
@@ -76,8 +78,9 @@ class CardCourse extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed('/course',
-            arguments: {'nameCourse': courseName, 'goals': goals});
+        Provider.of<CourseProvider>(context, listen: false)
+            .changeCourse(courseName, goals);
+        Navigator.of(context).pushNamed('/course');
       },
       child: Container(
         width: categoryWidth,
@@ -107,7 +110,7 @@ class CardCourse extends StatelessWidget {
               Container(
                   width: 120,
                   height: 120,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Color.fromARGB(255, 18, 127, 252)))
             ],

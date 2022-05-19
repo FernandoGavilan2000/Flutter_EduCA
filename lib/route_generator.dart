@@ -24,7 +24,7 @@ class RouteGenerator {
       case '/home':
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case '/course':
-        return MaterialPageRoute(builder: (_) => CourseScreen(data: args));
+        return MaterialPageRoute(builder: (_) => const CourseScreen());
       case '/recursos':
         return MaterialPageRoute(builder: (_) => const RecursosScreen());
       case '/quizes':

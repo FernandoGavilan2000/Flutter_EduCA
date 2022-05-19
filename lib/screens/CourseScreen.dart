@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/providers/Course.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/Text/CustomSubTitle.dart';
 import '../widgets/Text/CustomText.dart';
 import '../widgets/Text/CustomTitle.dart';
 
 class CourseScreen extends StatelessWidget {
-  const CourseScreen({Key? key, required this.data}) : super(key: key);
-  final Map data;
+  const CourseScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    String courseName = Provider.of<CourseProvider>(context).courseName;
+    List<String>? courseGoals = Provider.of<CourseProvider>(context).goals;
     return SafeArea(
       child: Container(
         decoration: const BoxDecoration(
@@ -45,7 +48,7 @@ class CourseScreen extends StatelessWidget {
                             height: 10,
                           ),
                           CustomTitle(
-                            text: data['nameCourse'],
+                            text: courseName,
                             color: Colors.black,
                             bold: true,
                           ),
@@ -59,8 +62,7 @@ class CourseScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     Column(
-                      children:
-                          listCompetencias(data['nameCourse'], data['goals']),
+                      children: listCompetencias(courseName, courseGoals),
                     )
                   ]),
             ),
@@ -71,45 +73,48 @@ class CourseScreen extends StatelessWidget {
   }
 }
 
-List<Widget> listCompetencias(String name, List goals) {
+List<Widget> listCompetencias(String name, List<String>? goals) {
   List<Widget> listCards = [];
-  for (var i = 0; i < goals.length; i++) {
-    switch (i) {
-      case 0:
-        listCards.add(CompetenciaCard(
+  if (goals != null) {
+    for (var i = 0; i < goals.length; i++) {
+      switch (i) {
+        case 0:
+          listCards.add(CompetenciaCard(
+              nameCourse: name,
+              label: goals[i],
+              background: Color.fromARGB(255, 53, 221, 59)));
+          break;
+        case 1:
+          listCards.add(CompetenciaCard(
             nameCourse: name,
             label: goals[i],
-            background: Color.fromARGB(255, 53, 221, 59)));
-        break;
-      case 1:
-        listCards.add(CompetenciaCard(
-          nameCourse: name,
-          label: goals[i],
-          background: Color.fromARGB(255, 66, 108, 245),
-        ));
-        break;
-      case 2:
-        listCards.add(CompetenciaCard(
-          nameCourse: name,
-          label: goals[i],
-          background: Color.fromARGB(255, 255, 104, 93),
-        ));
-        break;
-      case 3:
-        listCards.add(CompetenciaCard(
-          nameCourse: name,
-          label: goals[i],
-          background: Color.fromARGB(255, 247, 170, 55),
-        ));
-        break;
-      default:
-        listCards.add(CompetenciaCard(
-          nameCourse: name,
-          label: goals[i],
-          background: Color.fromARGB(255, 66, 108, 245),
-        ));
+            background: Color.fromARGB(255, 66, 108, 245),
+          ));
+          break;
+        case 2:
+          listCards.add(CompetenciaCard(
+            nameCourse: name,
+            label: goals[i],
+            background: Color.fromARGB(255, 255, 104, 93),
+          ));
+          break;
+        case 3:
+          listCards.add(CompetenciaCard(
+            nameCourse: name,
+            label: goals[i],
+            background: Color.fromARGB(255, 247, 170, 55),
+          ));
+          break;
+        default:
+          listCards.add(CompetenciaCard(
+            nameCourse: name,
+            label: goals[i],
+            background: Color.fromARGB(255, 66, 108, 245),
+          ));
+      }
     }
   }
+
   return listCards;
 }
 

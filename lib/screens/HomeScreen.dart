@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/providers/Course.dart';
 import 'package:flutter_educa/widgets/CardNewRecord.dart';
 import 'package:flutter_educa/widgets/CategoriesScroller.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:flutter_educa/widgets/Text/CustomText.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const List<String> listCourses = [
-      'Mate 1',
-      'Historia del Peru',
-      'Ciencias'
-    ];
     return SafeArea(
       child: Container(
         decoration: const BoxDecoration(
