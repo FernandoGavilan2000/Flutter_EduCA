@@ -7,7 +7,7 @@ import 'package:flutter_educa/screens/HomeScreen.dart';
 import 'package:flutter_educa/screens/InicioScreen.dart';
 import 'package:flutter_educa/screens/LecturasScreen.dart';
 import 'package:flutter_educa/screens/LoginScreen.dart';
-import 'package:flutter_educa/screens/QuizesScreen.dart';
+import 'package:flutter_educa/screens/QuizzesScreen.dart';
 import 'package:flutter_educa/screens/ReadLecturaScreen.dart';
 import 'package:flutter_educa/screens/RecursosScreen.dart';
 import 'package:flutter_educa/screens/VideosScreen.dart';
@@ -27,20 +27,20 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const CourseScreen());
       case '/recursos':
         return MaterialPageRoute(builder: (_) => const RecursosScreen());
-      case '/quizes':
-        return MaterialPageRoute(builder: (_) => const QuizesScreen());
+      case '/quizzes':
+        return MaterialPageRoute(builder: (_) => QuizzesScreen(course: args));
       case '/audios':
         return MaterialPageRoute(builder: (_) => const AudiosScreen());
       case '/lecturas':
-        return MaterialPageRoute(builder: (_) => const LecturasScreen());
+        return MaterialPageRoute(builder: (_) => LecturasScreen(course: args));
       case '/videos':
-        return MaterialPageRoute(builder: (_) => const VideosScreen());
+        return MaterialPageRoute(builder: (_) => VideosScreen(course: args));
       case '/lectura_demo':
         return MaterialPageRoute(builder: (_) => ReadLecturaScreen(data: args));
       case '/audio_demo':
         return MaterialPageRoute(builder: (_) => const AudioPlayerScreen());
       case '/quiz_demo':
-        return MaterialPageRoute(builder: (_) => const AnswerScreen());
+        return MaterialPageRoute(builder: (_) => AnswerScreen(quizzID: args));
       default:
         return MaterialPageRoute(builder: (_) => const InicioScreen());
     }

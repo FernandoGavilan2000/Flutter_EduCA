@@ -82,34 +82,34 @@ List<Widget> listCompetencias(String name, List<String>? goals) {
           listCards.add(CompetenciaCard(
               nameCourse: name,
               label: goals[i],
-              background: Color.fromARGB(255, 53, 221, 59)));
+              background: const Color.fromARGB(255, 53, 221, 59)));
           break;
         case 1:
           listCards.add(CompetenciaCard(
             nameCourse: name,
             label: goals[i],
-            background: Color.fromARGB(255, 66, 108, 245),
+            background: const Color.fromARGB(255, 66, 108, 245),
           ));
           break;
         case 2:
           listCards.add(CompetenciaCard(
             nameCourse: name,
             label: goals[i],
-            background: Color.fromARGB(255, 255, 104, 93),
+            background: const Color.fromARGB(255, 255, 104, 93),
           ));
           break;
         case 3:
           listCards.add(CompetenciaCard(
             nameCourse: name,
             label: goals[i],
-            background: Color.fromARGB(255, 247, 170, 55),
+            background: const Color.fromARGB(255, 247, 170, 55),
           ));
           break;
         default:
           listCards.add(CompetenciaCard(
             nameCourse: name,
             label: goals[i],
-            background: Color.fromARGB(255, 66, 108, 245),
+            background: const Color.fromARGB(255, 66, 108, 245),
           ));
       }
     }
@@ -134,8 +134,7 @@ class CompetenciaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context)
-            .pushNamed('/recursos', arguments: {'nameCourse': nameCourse});
+        Navigator.of(context).pushNamed('/recursos');
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 30),

@@ -7,7 +7,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String inputRecibido;
+    //String inputRecibido;
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(colors: <Color>[

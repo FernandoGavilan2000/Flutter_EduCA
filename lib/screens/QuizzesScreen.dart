@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_educa/widgets/QuizessScroller.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import '../widgets/Text/CustomText.dart';
-import '../widgets/Text/CustomTitle.dart';
+//import '../widgets/Text/CustomTitle.dart';
 
-class QuizesScreen extends StatelessWidget {
-  const QuizesScreen({Key? key}) : super(key: key);
+class QuizzesScreen extends StatelessWidget {
+  final String course;
+  const QuizzesScreen({Key? key, required this.course}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +64,7 @@ class QuizesScreen extends StatelessWidget {
                                 ),
                                 const CustomSubTitle(
                                   color: Color.fromRGBO(69, 84, 255, 1),
-                                  text: 'Quizes',
+                                  text: 'Quizzes',
                                   fontSize: 35,
                                   bold: true,
                                 ),
@@ -86,7 +87,7 @@ class QuizesScreen extends StatelessWidget {
                                       color: Color.fromRGBO(0, 0, 0, 0.25),
                                       blurRadius: 15)
                                 ]),
-                            child: const QuizesScroller(),
+                            child: QuizesScroller(course: course),
                           ),
                         )
                       ],

@@ -3,23 +3,25 @@ import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuizesCard extends StatelessWidget {
-  const QuizesCard({
-    Key? key,
-    required this.coloFondo,
-    required this.description,
-    required this.title,
-    required this.sizeTitle,
-  }) : super(key: key);
+  const QuizesCard(
+      {Key? key,
+      required this.coloFondo,
+      required this.description,
+      required this.title,
+      required this.sizeTitle,
+      required this.quizzID})
+      : super(key: key);
   final Color coloFondo;
   final String title;
   final String description;
   final double sizeTitle;
+  final String quizzID;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed('/quiz_demo');
+        Navigator.of(context).pushNamed('/quiz_demo', arguments: quizzID);
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 15),

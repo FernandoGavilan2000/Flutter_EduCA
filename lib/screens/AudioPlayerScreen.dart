@@ -18,7 +18,7 @@ class AudioPlayerScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage('assets/girl.png'),

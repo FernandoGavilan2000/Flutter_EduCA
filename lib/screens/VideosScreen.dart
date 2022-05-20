@@ -7,7 +7,8 @@ import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import '../models/videos.dart';
 
 class VideosScreen extends StatefulWidget {
-  const VideosScreen({Key? key}) : super(key: key);
+  final String course;
+  const VideosScreen({Key? key, required this.course}) : super(key: key);
   @override
   State<VideosScreen> createState() => _VideosScreenState();
 }
@@ -24,7 +25,7 @@ class _VideosScreenState extends State<VideosScreen> {
   }
 
   getVideosAPI() async {
-    videos = await RemoteService().getVideos("comunicacion");
+    videos = await RemoteService().getVideos(widget.course);
     if (videos != null) {
       setState(() {
         isLoaded = true;

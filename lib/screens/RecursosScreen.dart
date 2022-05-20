@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/providers/Course.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/Text/CustomText.dart';
 import '../widgets/Text/CustomTitle.dart';
@@ -11,6 +13,8 @@ class RecursosScreen extends StatelessWidget {
     final double categoryHeight = MediaQuery.of(context).size.height * 0.28;
     final double categoryWidth = MediaQuery.of(context).size.width * 0.40;
     final double space = MediaQuery.of(context).size.width * 0.06;
+
+    String courseName = Provider.of<CourseProvider>(context).courseName;
     return SafeArea(
         child: Container(
             decoration: const BoxDecoration(
@@ -56,6 +60,7 @@ class RecursosScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   CardResource(
+                                    course: courseName,
                                     categoryHeight: categoryHeight,
                                     categoryWidth: categoryWidth,
                                     resourceName: "Lecturas",
@@ -69,9 +74,10 @@ class RecursosScreen extends StatelessWidget {
                                     width: space,
                                   ),
                                   CardResource(
+                                    course: courseName,
                                     categoryHeight: categoryHeight,
                                     categoryWidth: categoryWidth,
-                                    resourceName: "Quizes",
+                                    resourceName: "Quizzes",
                                     pathImage: "assets/quizes.png",
                                     colorImage: const Color.fromARGB(
                                         255, 143, 238, 168),
@@ -87,6 +93,7 @@ class RecursosScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   CardResource(
+                                    course: courseName,
                                     categoryHeight: categoryHeight,
                                     categoryWidth: categoryWidth,
                                     resourceName: "Audios",
@@ -100,6 +107,7 @@ class RecursosScreen extends StatelessWidget {
                                     width: 25,
                                   ),
                                   CardResource(
+                                    course: courseName,
                                     categoryHeight: categoryHeight,
                                     categoryWidth: categoryWidth,
                                     resourceName: "Videos",
@@ -132,6 +140,7 @@ class CardResource extends StatelessWidget {
     required this.colorFondo,
     required this.colorImage,
     required this.pathImage,
+    required this.course,
   }) : super(key: key);
 
   final double categoryHeight;
@@ -140,23 +149,24 @@ class CardResource extends StatelessWidget {
   final Color colorFondo;
   final Color colorImage;
   final String pathImage;
+  final String course;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         switch (resourceName) {
-          case "Quizes":
-            Navigator.of(context).pushNamed('/quizes');
+          case "Quizzes":
+            Navigator.of(context).pushNamed('/quizzes', arguments: course);
             break;
           case "Audios":
             Navigator.of(context).pushNamed('/audios');
             break;
           case "Lecturas":
-            Navigator.of(context).pushNamed('/lecturas');
+            Navigator.of(context).pushNamed('/lecturas', arguments: course);
             break;
           case "Videos":
-            Navigator.of(context).pushNamed('/videos');
+            Navigator.of(context).pushNamed('/videos', arguments: course);
             break;
           default:
             Navigator.of(context).pushNamed('/recursos');

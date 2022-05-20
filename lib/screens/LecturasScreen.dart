@@ -7,7 +7,8 @@ import '../widgets/Text/CustomText.dart';
 import '../widgets/Text/CustomTitle.dart';
 
 class LecturasScreen extends StatelessWidget {
-  const LecturasScreen({Key? key}) : super(key: key);
+  final String course;
+  const LecturasScreen({Key? key, required this.course}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +102,9 @@ class LecturasScreen extends StatelessWidget {
                       ]),
                 ),
                 const SizedBox(height: 50),
-                Lecturas()
+                Lecturas(
+                  course: course,
+                )
               ],
             ),
           ),
@@ -112,9 +115,8 @@ class LecturasScreen extends StatelessWidget {
 }
 
 class Lecturas extends StatefulWidget {
-  const Lecturas({
-    Key? key,
-  }) : super(key: key);
+  final String course;
+  const Lecturas({Key? key, required this.course}) : super(key: key);
 
   @override
   State<Lecturas> createState() => _LecturasState();
@@ -132,7 +134,7 @@ class _LecturasState extends State<Lecturas> {
   }
 
   getReadingsAPI() async {
-    readings = await RemoteService().getReadings("comunicacion");
+    readings = await RemoteService().getReadings(widget.course);
     if (readings != null) {
       setState(() {
         isLoaded = true;
@@ -144,7 +146,7 @@ class _LecturasState extends State<Lecturas> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      constraints: BoxConstraints(minHeight: 600),
+      constraints: const BoxConstraints(minHeight: 600),
       padding: const EdgeInsets.all(10),
       decoration: const BoxDecoration(
           color: Color.fromRGBO(69, 84, 255, 1),

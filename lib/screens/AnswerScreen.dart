@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/models/quizzquestions.dart';
+import 'package:flutter_educa/providers/Course.dart';
+import 'package:flutter_educa/services/remote_service.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:flutter_educa/widgets/Text/CustomText.dart';
 import 'package:flutter_educa/widgets/Text/CustomTitle.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AnswerScreen extends StatelessWidget {
-  const AnswerScreen({Key? key}) : super(key: key);
+class AnswerScreen extends StatefulWidget {
+  final String quizzID;
+  const AnswerScreen({Key? key, required this.quizzID}) : super(key: key);
 
+  @override
+  State<AnswerScreen> createState() => _AnswerScreenState();
+}
+
+class _AnswerScreenState extends State<AnswerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +35,10 @@ class AnswerScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Center(
                       child: CustomSubTitle(
-                        text: 'Comunicación',
+                        text: widget.quizzID,
                         color: Colors.white,
                         bold: true,
                       ),
@@ -62,7 +71,7 @@ class AnswerScreen extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(35))),
                   margin:
                       EdgeInsets.all(MediaQuery.of(context).size.width * 0.1),
-                  padding: EdgeInsets.all(28),
+                  padding: const EdgeInsets.all(28),
                   width: double.infinity,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

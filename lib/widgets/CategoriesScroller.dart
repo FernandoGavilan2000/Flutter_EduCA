@@ -6,7 +6,7 @@ class CategoriesScroller extends StatelessWidget {
   const CategoriesScroller({Key? key}) : super(key: key);
 
   static Map<String, dynamic> courses = {
-    'Comunicación': [
+    'Comunicacion': [
       'Comunicar oralmente en su lengua materna.',
       'Leer diversos tipos de textos escritos en su lengua materna.',
       'Escribir diversos tipos de textos en su lengua materna.'
@@ -16,13 +16,13 @@ class CategoriesScroller extends StatelessWidget {
       'Lee diversos tipos de textos escritos en inglés como lengua extranjera',
       'Escribe diversos tipos de textos en inglés como lengua extranjera.'
     ],
-    'Matematica': [
+    'Matematicas': [
       'Resuelve problemas de cantidad',
       'Resuelve problemas de regularidad, equivalencia y cambio',
       'Resuelve problemas de forma, movimiento y localización.',
       'Resuelve problemas de gestión de datos e incertidumbre.'
     ],
-    'Ciencias Sociales': [
+    'Sociales': [
       'Construye interpretaciones históricas.',
       'Gestiona responsablemente el espacio y el ambiente.',
       'Gestiona responsablemente los recursos económicos.',
