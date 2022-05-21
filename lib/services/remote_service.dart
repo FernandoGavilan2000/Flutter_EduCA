@@ -48,6 +48,7 @@ class RemoteService {
   }
 
   Future<List<Reading>?> getReadings(String course) async {
+    print(course);
     var client = http.Client();
     var uri = Uri.parse(URL_BASE + course + '/readings/');
     var response = await client.get(uri);

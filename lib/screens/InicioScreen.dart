@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/widgets/Buttons/LargeButton.dart';
+import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:flutter_educa/widgets/Text/CustomTitle.dart';
 
 class InicioScreen extends StatelessWidget {
@@ -12,7 +13,7 @@ class InicioScreen extends StatelessWidget {
           gradient: LinearGradient(colors: <Color>[
         Color.fromRGBO(69, 84, 255, 1),
         Color.fromRGBO(61, 168, 255, 1)
-      ], begin: Alignment.center, end: Alignment.bottomCenter)),
+      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
@@ -20,11 +21,19 @@ class InicioScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const CustomTitle(text: 'Bienvenido'),
+                const CustomSubTitle(
+                  text: 'Bienvenido',
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    CustomTitle(text: 'al '),
+                    CustomSubTitle(
+                      text: 'al ',
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),
                     CustomTitle(
                       text: 'Aprendizaje',
                       bold: true,

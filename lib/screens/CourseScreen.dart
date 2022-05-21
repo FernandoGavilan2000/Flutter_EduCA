@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/providers/Course.dart';
+import 'package:flutter_educa/widgets/HeaderCard.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/Text/CustomSubTitle.dart';
@@ -13,6 +14,8 @@ class CourseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String courseName = Provider.of<CourseProvider>(context).courseName;
     List<String>? courseGoals = Provider.of<CourseProvider>(context).goals;
+    double widthScreen = MediaQuery.of(context).size.width;
+    //double heightScreen = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Container(
         decoration: const BoxDecoration(
@@ -25,22 +28,21 @@ class CourseScreen extends StatelessWidget {
           body: SingleChildScrollView(
             child: Container(
               width: double.infinity,
-              margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
+              margin: EdgeInsets.all(widthScreen * 0.02),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      width: double.infinity,
-                      color: Colors.transparent,
-                      height: MediaQuery.of(context).size.height * 0.1,
-                      //child: Text("AQUI VA EL MENU HAMBURGUESA + Photo"),
+                    const HeaderCard(
+                      educaColor: Colors.white,
+                      messageColor: Colors.black,
+                      message: true,
                     ),
                     Center(
                       child: Column(
                         children: [
                           Container(
-                              width: MediaQuery.of(context).size.width * 0.30,
-                              height: MediaQuery.of(context).size.width * 0.30,
+                              width: widthScreen * 0.30,
+                              height: widthScreen * 0.30,
                               decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: Color.fromARGB(255, 18, 127, 252))),
@@ -57,12 +59,15 @@ class CourseScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 60),
                     const CustomText(
-                      text: 'Competencias',
+                      text: 'Competencias:',
                       bold: true,
                     ),
                     const SizedBox(height: 20),
-                    Column(
-                      children: listCompetencias(courseName, courseGoals),
+                    Container(
+                      margin: EdgeInsets.all(widthScreen * 0.025),
+                      child: Column(
+                        children: listCompetencias(courseName, courseGoals),
+                      ),
                     )
                   ]),
             ),
@@ -82,20 +87,20 @@ List<Widget> listCompetencias(String name, List<String>? goals) {
           listCards.add(CompetenciaCard(
               nameCourse: name,
               label: goals[i],
-              background: const Color.fromARGB(255, 53, 221, 59)));
+              background: const Color.fromARGB(255, 60, 221, 66)));
           break;
         case 1:
           listCards.add(CompetenciaCard(
             nameCourse: name,
             label: goals[i],
-            background: const Color.fromARGB(255, 66, 108, 245),
+            background: const Color.fromARGB(255, 65, 107, 243),
           ));
           break;
         case 2:
           listCards.add(CompetenciaCard(
             nameCourse: name,
             label: goals[i],
-            background: const Color.fromARGB(255, 255, 104, 93),
+            background: const Color.fromARGB(255, 241, 80, 68),
           ));
           break;
         case 3:
@@ -137,7 +142,7 @@ class CompetenciaCard extends StatelessWidget {
         Navigator.of(context).pushNamed('/recursos');
       },
       child: Container(
-        margin: const EdgeInsets.only(bottom: 30),
+        margin: const EdgeInsets.only(bottom: 20),
         padding: const EdgeInsets.only(left: 12, right: 12),
         decoration: BoxDecoration(
             color: background, borderRadius: BorderRadius.circular(12)),
@@ -148,7 +153,7 @@ class CompetenciaCard extends StatelessWidget {
               align: TextAlign.left,
               bold: true,
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 18,
               text: label),
         ),
       ),

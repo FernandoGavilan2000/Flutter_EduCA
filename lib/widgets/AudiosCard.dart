@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:flutter_educa/widgets/Text/CustomTitle.dart';
 
 class AudiosCard extends StatelessWidget {
@@ -47,7 +48,7 @@ class AudiosCard extends StatelessWidget {
                   color: colorBlue,
                   fontSize: 20,
                 ),
-                CustomTitle(
+                CustomSubTitle(
                   text: description,
                   color: colorNegro,
                   fontSize: 10,
@@ -69,10 +70,11 @@ class AudiosCard extends StatelessWidget {
                       Icons.play_arrow,
                       color: Color.fromARGB(255, 43, 43, 43),
                     ),
-                    CustomTitle(
+                    CustomSubTitle(
                       text: 'Play',
                       color: colorNegro,
                       fontSize: 10,
+                      bold: true,
                     ),
                   ],
                 ),

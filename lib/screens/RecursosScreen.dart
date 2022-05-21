@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/providers/Course.dart';
+import 'package:flutter_educa/widgets/HeaderCard.dart';
+import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/Text/CustomText.dart';
@@ -15,6 +17,7 @@ class RecursosScreen extends StatelessWidget {
     final double space = MediaQuery.of(context).size.width * 0.06;
 
     String courseName = Provider.of<CourseProvider>(context).courseName;
+    String coursePath = Provider.of<CourseProvider>(context).coursePath;
     return SafeArea(
         child: Container(
             decoration: const BoxDecoration(
@@ -27,26 +30,32 @@ class RecursosScreen extends StatelessWidget {
               body: SingleChildScrollView(
                 child: Container(
                   width: double.infinity,
-                  margin: EdgeInsets.all(space),
+                  margin:
+                      EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        width: double.infinity,
-                        color: Colors.transparent,
-                        height: MediaQuery.of(context).size.height * 0.1,
-                        //child: Text("AQUI VA EL MENU HAMBURGUESA + Photo"),
+                      const HeaderCard(
+                        educaColor: Colors.white,
+                        messageColor: Colors.black,
+                        message: true,
                       ),
                       Center(
-                        child: Column(
-                          children: const [
-                            CustomTitle(
-                              text: 'Recursos Disponibles',
-                              color: Colors.black,
-                              bold: true,
-                            ),
-                          ],
+                        child: CustomTitle(
+                          text: courseName,
+                          bold: true,
+                          fontSize: 40,
+                          color: Colors.black,
                         ),
+                      ),
+                      const SizedBox(
+                        height: 35,
+                      ),
+                      const CustomTitle(
+                        text: 'Recursos:',
+                        color: Colors.black,
+                        bold: false,
+                        fontSize: 25,
                       ),
                       const SizedBox(
                         height: 25,
@@ -60,7 +69,7 @@ class RecursosScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   CardResource(
-                                    course: courseName,
+                                    course: coursePath,
                                     categoryHeight: categoryHeight,
                                     categoryWidth: categoryWidth,
                                     resourceName: "Lecturas",
@@ -74,7 +83,7 @@ class RecursosScreen extends StatelessWidget {
                                     width: space,
                                   ),
                                   CardResource(
-                                    course: courseName,
+                                    course: coursePath,
                                     categoryHeight: categoryHeight,
                                     categoryWidth: categoryWidth,
                                     resourceName: "Quizzes",
@@ -93,7 +102,7 @@ class RecursosScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   CardResource(
-                                    course: courseName,
+                                    course: coursePath,
                                     categoryHeight: categoryHeight,
                                     categoryWidth: categoryWidth,
                                     resourceName: "Audios",
@@ -107,7 +116,7 @@ class RecursosScreen extends StatelessWidget {
                                     width: 25,
                                   ),
                                   CardResource(
-                                    course: courseName,
+                                    course: coursePath,
                                     categoryHeight: categoryHeight,
                                     categoryWidth: categoryWidth,
                                     resourceName: "Videos",

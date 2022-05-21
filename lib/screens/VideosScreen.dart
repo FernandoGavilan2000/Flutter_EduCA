@@ -1,4 +1,5 @@
 import 'package:flutter_educa/providers/Course.dart';
+import 'package:flutter_educa/widgets/HeaderCard.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
@@ -54,25 +55,24 @@ class _VideosScreenState extends State<VideosScreen> {
                       EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          color: Colors.transparent,
-                          height: MediaQuery.of(context).size.height * 0.1,
-                          //child: Text("AQUI VA EL MENU HAMBURGUESA + Photo"),
+                      children: const [
+                        HeaderCard(
+                          educaColor: Colors.white,
+                          message: false,
+                          imageSize: 78,
                         ),
-                        const CustomSubTitle(
+                        CustomSubTitle(
                           text: '¡Aprendamos viendo!',
                           color: Colors.white,
                           fontSize: 25,
                         ),
-                        const CustomSubTitle(
+                        CustomSubTitle(
                           color: Colors.white,
                           text: 'Videos',
                           bold: true,
                           fontSize: 40,
                         ),
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20),
                       ]),
                 ),
                 Visibility(

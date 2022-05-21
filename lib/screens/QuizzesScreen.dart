@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/widgets/HeaderCard.dart';
 import 'package:flutter_educa/widgets/QuizessScroller.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import '../widgets/Text/CustomText.dart';
@@ -38,16 +39,14 @@ class QuizzesScreen extends StatelessWidget {
                           flex: 30,
                           child: Container(
                             margin: EdgeInsets.all(
-                                MediaQuery.of(context).size.width * 0.07),
+                                MediaQuery.of(context).size.width * 0.02),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                  width: double.infinity,
-                                  color: Colors.transparent,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.1,
-                                  //child: Text("AQUI VA EL MENU HAMBURGUESA + Photo"),
+                                const HeaderCard(
+                                  educaColor: Colors.black,
+                                  message: false,
+                                  imageSize: 78,
                                 ),
                                 Row(
                                   children: const [

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/models/reading.dart';
 import 'package:flutter_educa/services/remote_service.dart';
+import 'package:flutter_educa/widgets/HeaderCard.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 
 import '../widgets/Text/CustomText.dart';
 import '../widgets/Text/CustomTitle.dart';
 
 class LecturasScreen extends StatelessWidget {
-  final String course;
+  final String course; //Path_Course
   const LecturasScreen({Key? key, required this.course}) : super(key: key);
 
   @override
@@ -31,11 +32,10 @@ class LecturasScreen extends StatelessWidget {
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          width: double.infinity,
-                          color: Colors.transparent,
-                          height: MediaQuery.of(context).size.height * 0.1,
-                          //child: Text("AQUI VA EL MENU HAMBURGUESA + Photo"),
+                        const HeaderCard(
+                          educaColor: Colors.black,
+                          message: false,
+                          imageSize: 78,
                         ),
                         Row(
                           children: const [

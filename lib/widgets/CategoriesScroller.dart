@@ -5,28 +5,39 @@ import 'package:provider/provider.dart';
 class CategoriesScroller extends StatelessWidget {
   const CategoriesScroller({Key? key}) : super(key: key);
 
-  static Map<String, dynamic> courses = {
-    'Comunicacion': [
-      'Comunicar oralmente en su lengua materna.',
-      'Leer diversos tipos de textos escritos en su lengua materna.',
-      'Escribir diversos tipos de textos en su lengua materna.'
-    ],
-    'Ingles': [
-      'Se comunica oralmente en inglés como lengua extranjera.',
-      'Lee diversos tipos de textos escritos en inglés como lengua extranjera',
-      'Escribe diversos tipos de textos en inglés como lengua extranjera.'
-    ],
-    'Matematicas': [
-      'Resuelve problemas de cantidad',
-      'Resuelve problemas de regularidad, equivalencia y cambio',
-      'Resuelve problemas de forma, movimiento y localización.',
-      'Resuelve problemas de gestión de datos e incertidumbre.'
-    ],
-    'Sociales': [
-      'Construye interpretaciones históricas.',
-      'Gestiona responsablemente el espacio y el ambiente.',
-      'Gestiona responsablemente los recursos económicos.',
-    ],
+  static Map<String, Map<String, dynamic>> courses = {
+    'Comunicación': {
+      'api_path': 'comunicacion',
+      'goals': [
+        'Comunicar oralmente en su lengua materna.',
+        'Leer diversos tipos de textos escritos en su lengua materna.',
+        'Escribir diversos tipos de textos en su lengua materna.'
+      ]
+    },
+    'Ingles': {
+      'api_path': 'ingles',
+      'goals': [
+        'Comunicar oralmente en su lengua materna.',
+        'Leer diversos tipos de textos escritos en su lengua materna.',
+        'Escribir diversos tipos de textos en su lengua materna.'
+      ]
+    },
+    'Matemáticas': {
+      'api_path': 'matematicas',
+      'goals': [
+        'Comunicar oralmente en su lengua materna.',
+        'Leer diversos tipos de textos escritos en su lengua materna.',
+        'Escribir diversos tipos de textos en su lengua materna.'
+      ]
+    },
+    'Sociales': {
+      'api_path': 'sociales',
+      'goals': [
+        'Comunicar oralmente en su lengua materna.',
+        'Leer diversos tipos de textos escritos en su lengua materna.',
+        'Escribir diversos tipos de textos en su lengua materna.'
+      ]
+    },
   };
 
   @override
@@ -54,32 +65,35 @@ List<Widget> listCourses(Map courses, double height, double width) {
       categoryHeight: height,
       categoryWidth: width,
       courseName: key,
-      goals: value,
+      coursePath: value['api_path'],
+      goals: value['goals'],
     ));
   });
   return cardCourses;
 }
 
 class CardCourse extends StatelessWidget {
-  const CardCourse({
-    Key? key,
-    required this.categoryHeight,
-    required this.categoryWidth,
-    required this.courseName,
-    required this.goals,
-  }) : super(key: key);
+  const CardCourse(
+      {Key? key,
+      required this.categoryHeight,
+      required this.categoryWidth,
+      required this.courseName,
+      required this.goals,
+      required this.coursePath})
+      : super(key: key);
 
   final double categoryHeight;
   final double categoryWidth;
   final String courseName;
   final List<String> goals;
+  final String coursePath;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         Provider.of<CourseProvider>(context, listen: false)
-            .changeCourse(courseName, goals);
+            .changeCourse(courseName, coursePath, goals);
         Navigator.of(context).pushNamed('/course');
       },
       child: Container(

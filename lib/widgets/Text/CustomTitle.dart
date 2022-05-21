@@ -20,7 +20,7 @@ class CustomTitle extends StatelessWidget {
         style: GoogleFonts.raleway(
           color: color,
           fontSize: fontSize,
-          fontWeight: bold ? FontWeight.bold : null,
+          fontWeight: bold ? FontWeight.w800 : FontWeight.bold,
         ));
   }
 }

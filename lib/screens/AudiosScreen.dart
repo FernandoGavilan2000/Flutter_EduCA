@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/widgets/AudiosScroller.dart';
+import 'package:flutter_educa/widgets/HeaderCard.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import '../widgets/Text/CustomText.dart';
 import '../widgets/Text/CustomTitle.dart';
@@ -22,7 +23,7 @@ class AudiosScreen extends StatelessWidget {
             child: Container(
               width: double.infinity,
               height: 850,
-              //margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.08),
+              //margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -32,22 +33,27 @@ class AudiosScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              width: double.infinity,
-                              color: Colors.transparent,
-                              height: MediaQuery.of(context).size.height * 0.1,
-                              //child: Text("AQUI VA EL MENU HAMBURGUESA + Photo"),
-                            ),
-                            const CustomSubTitle(
-                              text: '¡Escuchemos más!',
-                              color: Colors.white,
-                              fontSize: 22,
-                            ),
-                            const CustomSubTitle(
-                              color: Colors.white,
-                              text: 'Audios',
-                              bold: true,
-                              fontSize: 50,
-                            ),
+                              margin: EdgeInsets.all(
+                                  MediaQuery.of(context).size.width * 0.02),
+                              child: Column(children: const [
+                                HeaderCard(
+                                  educaColor: Colors.white,
+                                  message: false,
+                                  imageSize: 78,
+                                ),
+                                CustomSubTitle(
+                                  text: '¡Escuchemos más!',
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                ),
+                                CustomSubTitle(
+                                  color: Colors.white,
+                                  text: 'Audios',
+                                  bold: true,
+                                  fontSize: 50,
+                                )
+                              ]),
+                            )
                           ],
                         )),
                     Expanded(

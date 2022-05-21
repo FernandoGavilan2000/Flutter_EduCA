@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/widgets/Buttons/MediumButton.dart';
+import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:flutter_educa/widgets/Text/CustomTitle.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -13,7 +14,7 @@ class LoginScreen extends StatelessWidget {
           gradient: LinearGradient(colors: <Color>[
         Color.fromRGBO(69, 84, 255, 1),
         Color.fromRGBO(61, 168, 255, 1)
-      ], begin: Alignment.center, end: Alignment.bottomCenter)),
+      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
@@ -21,11 +22,19 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const CustomTitle(text: 'Bienvenido'),
+                const CustomSubTitle(
+                  text: 'Bienvenido',
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    CustomTitle(text: 'a Edu'),
+                    CustomSubTitle(
+                      text: 'a Edu',
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),
                     CustomTitle(
                       text: 'CA',
                       bold: true,
