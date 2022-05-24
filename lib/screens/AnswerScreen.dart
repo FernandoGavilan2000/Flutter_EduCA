@@ -24,7 +24,9 @@ class _AnswerScreenState extends State<AnswerScreen> {
   late String quizzID = widget.quizzID;
   List<QuizzQuestions>? questions;
   var isLoaded = false;
-  var index = 0;
+  List<int> answersheet = [];
+  int index = 0;
+
   @override
   void initState() {
     super.initState();
@@ -32,9 +34,28 @@ class _AnswerScreenState extends State<AnswerScreen> {
     getQuestionsAPI();
   }
 
-  void prevQuestion() {}
+  void prevQuestion() {
+    if (!(index <= 0)) {
+      setState(() {
+        index--;
+      });
+    }
+  }
 
-  void nextQuestion() {}
+  void nextQuestion() {
+    if (!(index == questions!.length - 1)) {
+      setState(() {
+        index++;
+      });
+    }
+  }
+
+  void chooseAnswer(int indexAnswer) {
+    setState(() {
+      answersheet[index] = indexAnswer;
+      print(answersheet);
+    });
+  }
 
   getQuestionsAPI() async {
     questions = await RemoteService().getQuestions(coursePath, quizzID);
@@ -51,17 +72,23 @@ class _AnswerScreenState extends State<AnswerScreen> {
       return Scaffold(
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
-          floatingActionButton:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            FloatingActionButton(
-              child: const Icon(Icons.navigate_before_rounded),
-              onPressed: prevQuestion,
-            ),
-            FloatingActionButton(
-              child: const Icon(Icons.navigate_next_rounded),
-              onPressed: nextQuestion,
-            )
-          ]),
+          floatingActionButton: Container(
+            margin: const EdgeInsets.only(bottom: 10),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  FloatingActionButton(
+                    backgroundColor: const Color.fromRGBO(69, 84, 255, 1),
+                    child: const Icon(Icons.navigate_before_rounded),
+                    onPressed: prevQuestion,
+                  ),
+                  FloatingActionButton(
+                    backgroundColor: const Color.fromRGBO(69, 84, 255, 1),
+                    child: const Icon(Icons.navigate_next_rounded),
+                    onPressed: nextQuestion,
+                  )
+                ]),
+          ),
           body: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(colors: <Color>[
@@ -77,6 +104,7 @@ class _AnswerScreenState extends State<AnswerScreen> {
               )),
               child: QuizContent(
                   question: questions![index],
+                  answersheet: answersheet,
                   index: index,
                   prevQuestion: prevQuestion,
                   nextQuestion: nextQuestion),
@@ -100,12 +128,14 @@ class QuizContent extends StatelessWidget {
   final QuizzQuestions question;
   final Function prevQuestion;
   final Function nextQuestion;
+  final List<int> answersheet;
   final int index;
   const QuizContent(
       {Key? key,
       required this.question,
       required this.prevQuestion,
       required this.nextQuestion,
+      required this.answersheet,
       required this.index})
       : super(key: key);
 
@@ -125,6 +155,7 @@ class QuizContent extends StatelessWidget {
               children: [
                 Center(
                   child: CustomSubTitle(
+                    fontSize: 30,
                     text: courseName,
                     color: Colors.white,
                     bold: true,
@@ -175,7 +206,7 @@ class QuizContent extends StatelessWidget {
                     question.titulo,
                     style: GoogleFonts.raleway(
                       color: Colors.black,
-                      fontSize: 19,
+                      fontSize: 22,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
@@ -183,7 +214,8 @@ class QuizContent extends StatelessWidget {
                     height: 35,
                   ),
                   Column(
-                    children: listOptions(question.options), /////////////////
+                    children: listOptions(
+                        question.options, answersheet, index), /////////////////
                   )
                 ],
               ),
@@ -193,33 +225,33 @@ class QuizContent extends StatelessWidget {
   }
 }
 
-List<Widget> listOptions(List<String> options) {
+List<Widget> listOptions(
+    List<String> options, List<int> answerSheet, int index) {
   List<Widget> optionsUI = [];
-  options.forEach((element) {
-    print(element);
-    optionsUI.add(option(element));
+  options.asMap().forEach((indexOption, value) {
+    optionsUI.add(option(value, false, indexOption));
   });
   return optionsUI;
 }
 
 //Widget para las opciones
-Widget option(String option) {
+Widget option(String option, bool isMarked, int index) {
   return Container(
     width: double.infinity,
     height: 40,
     padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
     margin: const EdgeInsets.symmetric(vertical: 10),
-    decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-        boxShadow: [
+    decoration: BoxDecoration(
+        color: isMarked ? const Color.fromRGBO(69, 84, 255, 1) : Colors.white,
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        boxShadow: const [
           BoxShadow(color: Color.fromRGBO(64, 135, 255, 1), blurRadius: 5)
         ]),
     child: CustomTitle(
       text: option,
       fontSize: 18,
       bold: true,
-      color: Colors.black,
+      color: isMarked ? Colors.white : Colors.black,
     ),
   );
 }
