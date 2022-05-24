@@ -8,6 +8,7 @@ class QuizesCard extends StatelessWidget {
       required this.coloFondo,
       required this.description,
       required this.title,
+      required this.coursePath,
       required this.sizeTitle,
       required this.quizzID})
       : super(key: key);
@@ -16,12 +17,17 @@ class QuizesCard extends StatelessWidget {
   final String description;
   final double sizeTitle;
   final String quizzID;
+  final String coursePath;
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, String> data = {
+      'coursePath': coursePath,
+      'quizzID': quizzID,
+    };
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed('/quiz_demo', arguments: quizzID);
+        Navigator.of(context).pushNamed('/quiz_demo', arguments: data);
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 15),

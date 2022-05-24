@@ -40,7 +40,11 @@ class RouteGenerator {
       case '/audio_demo':
         return MaterialPageRoute(builder: (_) => const AudioPlayerScreen());
       case '/quiz_demo':
-        return MaterialPageRoute(builder: (_) => AnswerScreen(quizzID: args));
+        return MaterialPageRoute(
+            builder: (_) => AnswerScreen(
+                  quizzID: args['quizzID'],
+                  coursePath: args['coursePath'],
+                ));
       default:
         return MaterialPageRoute(builder: (_) => const InicioScreen());
     }

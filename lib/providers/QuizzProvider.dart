@@ -1,16 +1,26 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_educa/models/quizzquestions.dart';
 
 class QuizzProvider extends ChangeNotifier {
-  String courseName;
-  List<String>? goals;
-
+  List<QuizzQuestions>? questions = [];
+  int indexQuestion = 0;
+  late List<int> answersheet;
   QuizzProvider({
-    this.courseName = '',
+    required this.questions,
   });
 
-  void changeCourse(String newCourse, List<String> newgoals) {
-    courseName = newCourse;
-    goals = newgoals;
+  void nextQuestion() {
+    indexQuestion++;
+    notifyListeners();
+  }
+
+  void saveAnswer(int indexAnswer) {
+    answersheet[indexQuestion] = indexAnswer;
+    notifyListeners();
+  }
+
+  void prevQuestion() {
+    indexQuestion--;
     notifyListeners();
   }
 }

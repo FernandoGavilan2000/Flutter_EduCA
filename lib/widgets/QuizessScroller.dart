@@ -41,14 +41,14 @@ class _QuizesScrollerState extends State<QuizesScroller> {
           color: Color.fromRGBO(234, 235, 255, 1),
         ),
         child: Column(
-          children: listQuizzes(quizzes),
+          children: listQuizzes(quizzes, widget.course),
         ),
       ),
     );
   }
 }
 
-List<QuizesCard> listQuizzes(List<QuizzInfo>? quizzes) {
+List<QuizesCard> listQuizzes(List<QuizzInfo>? quizzes, String coursePath) {
   List<QuizesCard> list_quizzes = [];
   if (quizzes != null) {
     for (var item in quizzes) {
@@ -58,6 +58,7 @@ List<QuizesCard> listQuizzes(List<QuizzInfo>? quizzes) {
         title: item.titulo,
         sizeTitle: 20,
         quizzID: item.id,
+        coursePath: coursePath,
       ));
     }
   }
