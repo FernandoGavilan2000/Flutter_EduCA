@@ -51,16 +51,18 @@ class _AnswerScreenState extends State<AnswerScreen> {
   }
 
   void chooseAnswer(int indexAnswer) {
-    setState(() {
-      answersheet[index] = indexAnswer;
-      print(answersheet);
-    });
+    answersheet.insert(index, indexAnswer);
+    answersheet.removeAt(index + 1);
+    setState(() {});
   }
 
   getQuestionsAPI() async {
     questions = await RemoteService().getQuestions(coursePath, quizzID);
     if (questions != null) {
       setState(() {
+        for (var i = 0; i < questions!.length; i++) {
+          answersheet.add(-1);
+        }
         isLoaded = true;
       });
     }
@@ -106,6 +108,7 @@ class _AnswerScreenState extends State<AnswerScreen> {
                   question: questions![index],
                   answersheet: answersheet,
                   index: index,
+                  chooseAnswer: chooseAnswer,
                   prevQuestion: prevQuestion,
                   nextQuestion: nextQuestion),
             ),
@@ -129,12 +132,14 @@ class QuizContent extends StatelessWidget {
   final Function prevQuestion;
   final Function nextQuestion;
   final List<int> answersheet;
+  final Function chooseAnswer;
   final int index;
   const QuizContent(
       {Key? key,
       required this.question,
       required this.prevQuestion,
       required this.nextQuestion,
+      required this.chooseAnswer,
       required this.answersheet,
       required this.index})
       : super(key: key);
@@ -171,13 +176,7 @@ class QuizContent extends StatelessWidget {
             width: double.infinity,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                CircleStep(step: '1'),
-                CircleStep(step: '2'),
-                CircleStep(step: '3'),
-                CircleStep(step: '4'),
-                CircleStep(step: '5'),
-              ],
+              children: listSteps(answersheet, index),
             ),
           ),
         ),
@@ -214,8 +213,8 @@ class QuizContent extends StatelessWidget {
                     height: 35,
                   ),
                   Column(
-                    children: listOptions(
-                        question.options, answersheet, index), /////////////////
+                    children: listOptions(question.options, answersheet, index,
+                        chooseAnswer), /////////////////
                   )
                 ],
               ),
@@ -225,33 +224,59 @@ class QuizContent extends StatelessWidget {
   }
 }
 
-List<Widget> listOptions(
-    List<String> options, List<int> answerSheet, int index) {
-  List<Widget> optionsUI = [];
-  options.asMap().forEach((indexOption, value) {
-    optionsUI.add(option(value, false, indexOption));
+List<CircleStep> listSteps(List<int> answersheet, int index) {
+  List<CircleStep> steps = [];
+  answersheet.asMap().forEach((key, value) {
+    if (answersheet[key] == -1) {
+      steps.add(CircleStep(step: "${key + 1}", isMarked: false));
+    } else {
+      steps.add(CircleStep(step: "${key + 1}", isMarked: true));
+    }
   });
+  return steps;
+}
+
+List<Widget> listOptions(List<String> options, List<int> answerSheet, int index,
+    Function chooseAnswer) {
+  List<Widget> optionsUI = [];
+  int markedIndexOption = -1;
+  if (answerSheet.asMap().containsKey(index)) {
+    markedIndexOption = answerSheet[index];
+  }
+  options.asMap().forEach((indexOption, value) {
+    if (indexOption == markedIndexOption) {
+      optionsUI.add(option(value, true, indexOption, chooseAnswer));
+    } else {
+      optionsUI.add(option(value, false, indexOption, chooseAnswer));
+    }
+  });
+
   return optionsUI;
 }
 
 //Widget para las opciones
-Widget option(String option, bool isMarked, int index) {
-  return Container(
-    width: double.infinity,
-    height: 40,
-    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-    margin: const EdgeInsets.symmetric(vertical: 10),
-    decoration: BoxDecoration(
-        color: isMarked ? const Color.fromRGBO(69, 84, 255, 1) : Colors.white,
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
-        boxShadow: const [
-          BoxShadow(color: Color.fromRGBO(64, 135, 255, 1), blurRadius: 5)
-        ]),
-    child: CustomTitle(
-      text: option,
-      fontSize: 18,
-      bold: true,
-      color: isMarked ? Colors.white : Colors.black,
+Widget option(String option, bool isMarked, int index, Function callback) {
+  return GestureDetector(
+    onTap: () {
+      callback(index);
+    },
+    child: Container(
+      width: double.infinity,
+      height: 40,
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      decoration: BoxDecoration(
+          color: isMarked ? const Color.fromRGBO(69, 84, 255, 1) : Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          boxShadow: const [
+            BoxShadow(color: Color.fromRGBO(64, 135, 255, 1), blurRadius: 5)
+          ]),
+      child: CustomTitle(
+        text: option,
+        fontSize: 18,
+        bold: true,
+        color: isMarked ? Colors.white : Colors.black,
+      ),
     ),
   );
 }
@@ -259,8 +284,10 @@ Widget option(String option, bool isMarked, int index) {
 //Widget de Etapas del Quiz
 
 class CircleStep extends StatelessWidget {
-  const CircleStep({Key? key, required this.step}) : super(key: key);
+  const CircleStep({Key? key, required this.step, required this.isMarked})
+      : super(key: key);
   final String step;
+  final bool isMarked;
 
   @override
   Widget build(BuildContext context) {
@@ -269,15 +296,17 @@ class CircleStep extends StatelessWidget {
       width: 40,
       height: 40,
       decoration: BoxDecoration(
+          color: isMarked ? Colors.black : Colors.transparent,
           borderRadius: const BorderRadius.all(Radius.circular(50)),
           border: Border.all(color: Colors.white, width: 2)),
       child: Center(
-          child: CustomText(
-        text: step,
-        bold: true,
-        fontSize: 20,
-        color: Colors.white,
-      )),
+        child: CustomText(
+          text: step,
+          bold: true,
+          fontSize: 25,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
