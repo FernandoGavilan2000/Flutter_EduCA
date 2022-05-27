@@ -7,6 +7,7 @@ import 'package:flutter_educa/screens/HomeScreen.dart';
 import 'package:flutter_educa/screens/InicioScreen.dart';
 import 'package:flutter_educa/screens/LecturasScreen.dart';
 import 'package:flutter_educa/screens/LoginScreen.dart';
+import 'package:flutter_educa/screens/ProfileUserScreen.dart';
 import 'package:flutter_educa/screens/QuizzesScreen.dart';
 import 'package:flutter_educa/screens/ReadLecturaScreen.dart';
 import 'package:flutter_educa/screens/RecursosScreen.dart';
@@ -25,6 +26,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case '/course':
         return MaterialPageRoute(builder: (_) => const CourseScreen());
+      case '/profile':
+        return MaterialPageRoute(builder: (_) => const ProfileUserScreen());
       case '/recursos':
         return MaterialPageRoute(builder: (_) => const RecursosScreen());
       case '/quizzes':

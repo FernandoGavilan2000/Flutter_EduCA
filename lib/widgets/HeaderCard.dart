@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/providers/User.dart';
 import 'package:flutter_educa/widgets/Text/CustomText.dart';
 import 'package:flutter_educa/widgets/Text/CustomTitle.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class HeaderCard extends StatelessWidget {
   const HeaderCard(
@@ -18,6 +20,8 @@ class HeaderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String userImage = Provider.of<UserProvider>(context).userImage;
+    String firstName = Provider.of<UserProvider>(context).firstName;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -67,7 +71,9 @@ class HeaderCard extends StatelessWidget {
                       SizedBox(
                         width: 100,
                         child: Text(
-                          message ? "¡Mejoremos tus habilidades Fernando!" : "",
+                          message
+                              ? "¡Mejoremos tus habilidades ${firstName}!"
+                              : "",
                           overflow: TextOverflow.fade,
                           textAlign: TextAlign.right,
                           style: GoogleFonts.raleway(
@@ -78,13 +84,18 @@ class HeaderCard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 5),
-                      SizedBox(
-                          width: imageSize,
-                          height: imageSize,
-                          child: const CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                "https://images.clipartlogo.com/files/istock/previews/1062/106268237-study-to-male-students.jpg"),
-                          )),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed('/profile');
+                        },
+                        child: SizedBox(
+                            width: imageSize,
+                            height: imageSize,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              backgroundImage: NetworkImage(userImage),
+                            )),
+                      ),
                     ],
                   ),
                 ),

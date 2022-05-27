@@ -32,16 +32,23 @@ class _QuizesScrollerState extends State<QuizesScroller> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      physics: const BouncingScrollPhysics(),
-      child: Container(
-        margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
-        decoration: const BoxDecoration(
-          color: Color.fromRGBO(234, 235, 255, 1),
-        ),
-        child: Column(
-          children: listQuizzes(quizzes, widget.course),
+    return Visibility(
+      visible: isLoaded,
+      replacement: const Center(
+          child: CircularProgressIndicator(
+        color: Color.fromRGBO(67, 101, 255, 1),
+      )),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        physics: const BouncingScrollPhysics(),
+        child: Container(
+          margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+          decoration: const BoxDecoration(
+            color: Color.fromRGBO(234, 235, 255, 1),
+          ),
+          child: Column(
+            children: listQuizzes(quizzes, widget.course),
+          ),
         ),
       ),
     );
@@ -53,7 +60,7 @@ List<QuizesCard> listQuizzes(List<QuizzInfo>? quizzes, String coursePath) {
   if (quizzes != null) {
     for (var item in quizzes) {
       list_quizzes.add(QuizesCard(
-        coloFondo: Color.fromRGBO(67, 101, 255, 1),
+        coloFondo: const Color.fromRGBO(67, 101, 255, 1),
         description: item.about,
         title: item.titulo,
         sizeTitle: 20,

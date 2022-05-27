@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_educa/models/quizzquestions.dart';
 import 'package:flutter_educa/providers/Course.dart';
 import 'package:flutter_educa/services/remote_service.dart';
+import 'package:flutter_educa/widgets/Buttons/LargeButton.dart';
+import 'package:flutter_educa/widgets/Buttons/MediumButton.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:flutter_educa/widgets/Text/CustomText.dart';
 import 'package:flutter_educa/widgets/Text/CustomTitle.dart';
@@ -24,6 +26,7 @@ class _AnswerScreenState extends State<AnswerScreen> {
   late String quizzID = widget.quizzID;
   List<QuizzQuestions>? questions;
   var isLoaded = false;
+  bool showButton = false;
   List<int> answersheet = [];
   int index = 0;
 
@@ -42,6 +45,15 @@ class _AnswerScreenState extends State<AnswerScreen> {
     }
   }
 
+  void checkAnswers() {
+    int counter = 0;
+    answersheet.asMap().forEach((key, value) {
+      if (questions![key].index == value) {
+        counter++;
+      }
+    });
+  }
+
   void nextQuestion() {
     if (!(index == questions!.length - 1)) {
       setState(() {
@@ -53,6 +65,10 @@ class _AnswerScreenState extends State<AnswerScreen> {
   void chooseAnswer(int indexAnswer) {
     answersheet.insert(index, indexAnswer);
     answersheet.removeAt(index + 1);
+
+    if (!(answersheet.asMap().containsValue(-1))) {
+      showButton = true;
+    }
     setState(() {});
   }
 
@@ -80,12 +96,16 @@ class _AnswerScreenState extends State<AnswerScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FloatingActionButton(
-                    backgroundColor: const Color.fromRGBO(69, 84, 255, 1),
+                    backgroundColor: const Color.fromRGBO(64, 135, 255, 1),
                     child: const Icon(Icons.navigate_before_rounded),
                     onPressed: prevQuestion,
                   ),
+                  Visibility(
+                    child: MediumButton(title: 'Corregir'),
+                    visible: showButton,
+                  ),
                   FloatingActionButton(
-                    backgroundColor: const Color.fromRGBO(69, 84, 255, 1),
+                    backgroundColor: const Color.fromRGBO(64, 135, 255, 1),
                     child: const Icon(Icons.navigate_next_rounded),
                     onPressed: nextQuestion,
                   )
@@ -266,7 +286,7 @@ Widget option(String option, bool isMarked, int index, Function callback) {
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       margin: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
-          color: isMarked ? const Color.fromRGBO(69, 84, 255, 1) : Colors.white,
+          color: isMarked ? Color.fromRGBO(64, 135, 255, 1) : Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(20)),
           boxShadow: const [
             BoxShadow(color: Color.fromRGBO(64, 135, 255, 1), blurRadius: 5)
@@ -296,7 +316,7 @@ class CircleStep extends StatelessWidget {
       width: 40,
       height: 40,
       decoration: BoxDecoration(
-          color: isMarked ? Colors.black : Colors.transparent,
+          color: isMarked ? Colors.white : Colors.transparent,
           borderRadius: const BorderRadius.all(Radius.circular(50)),
           border: Border.all(color: Colors.white, width: 2)),
       child: Center(
@@ -304,7 +324,7 @@ class CircleStep extends StatelessWidget {
           text: step,
           bold: true,
           fontSize: 25,
-          color: Colors.white,
+          color: isMarked ? Color.fromRGBO(69, 84, 255, 1) : Colors.white,
         ),
       ),
     );
