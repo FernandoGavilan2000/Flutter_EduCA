@@ -27,7 +27,8 @@ class QuizesCard extends StatelessWidget {
     };
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed('/quiz_demo', arguments: data);
+        Navigator.of(context)
+            .pushReplacementNamed('/quiz_demo', arguments: data);
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 15),

@@ -43,7 +43,7 @@ class LecturasScreen extends StatelessWidget {
                               text: '¡Conozcamos ',
                             ),
                             CustomText(
-                              text: 'mucho mas!',
+                              text: 'mucho más!',
                               bold: true,
                             ),
                           ],

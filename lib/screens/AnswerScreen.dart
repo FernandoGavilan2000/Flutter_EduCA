@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_educa/models/quizzquestions.dart';
 import 'package:flutter_educa/providers/Course.dart';
 import 'package:flutter_educa/services/remote_service.dart';
+import 'package:flutter_educa/widgets/Alerts/AnswerMessage.dart';
 import 'package:flutter_educa/widgets/Buttons/LargeButton.dart';
 import 'package:flutter_educa/widgets/Buttons/MediumButton.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
@@ -52,6 +53,17 @@ class _AnswerScreenState extends State<AnswerScreen> {
         counter++;
       }
     });
+    int points = counter * 10;
+    //print(counter);
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return AnswerMessage(
+            counter: counter,
+            points: points,
+          );
+        });
   }
 
   void nextQuestion() {
@@ -96,15 +108,22 @@ class _AnswerScreenState extends State<AnswerScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FloatingActionButton(
+                    heroTag: "prevQuestion",
                     backgroundColor: const Color.fromRGBO(64, 135, 255, 1),
                     child: const Icon(Icons.navigate_before_rounded),
                     onPressed: prevQuestion,
                   ),
                   Visibility(
-                    child: MediumButton(title: 'Corregir'),
+                    child: FloatingActionButton(
+                      heroTag: "returnQuizzes",
+                      backgroundColor: const Color.fromRGBO(64, 135, 255, 1),
+                      child: const Icon(Icons.add_task),
+                      onPressed: checkAnswers,
+                    ),
                     visible: showButton,
                   ),
                   FloatingActionButton(
+                    heroTag: "nextQuestion",
                     backgroundColor: const Color.fromRGBO(64, 135, 255, 1),
                     child: const Icon(Icons.navigate_next_rounded),
                     onPressed: nextQuestion,
@@ -142,6 +161,10 @@ class _AnswerScreenState extends State<AnswerScreen> {
             Color.fromRGBO(61, 168, 255, 1)
           ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
         ),
+        child: const Center(
+            child: CircularProgressIndicator(
+          color: Colors.white,
+        )),
       ));
     }
   }
