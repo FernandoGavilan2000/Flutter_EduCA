@@ -1,44 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/providers/Course.dart';
+import 'package:flutter_educa/utils/courses.dart';
 import 'package:provider/provider.dart';
 
 class CategoriesScroller extends StatelessWidget {
   const CategoriesScroller({Key? key}) : super(key: key);
-
-  static Map<String, Map<String, dynamic>> courses = {
-    'Comunicación': {
-      'api_path': 'comunicacion',
-      'goals': [
-        'Comunicar oralmente en su lengua materna.',
-        'Leer diversos tipos de textos escritos en su lengua materna.',
-        'Escribir diversos tipos de textos en su lengua materna.'
-      ]
-    },
-    'Ingles': {
-      'api_path': 'ingles',
-      'goals': [
-        'Comunicar oralmente en su lengua materna.',
-        'Leer diversos tipos de textos escritos en su lengua materna.',
-        'Escribir diversos tipos de textos en su lengua materna.'
-      ]
-    },
-    'Matemáticas': {
-      'api_path': 'matematicas',
-      'goals': [
-        'Comunicar oralmente en su lengua materna.',
-        'Leer diversos tipos de textos escritos en su lengua materna.',
-        'Escribir diversos tipos de textos en su lengua materna.'
-      ]
-    },
-    'Sociales': {
-      'api_path': 'sociales',
-      'goals': [
-        'Comunicar oralmente en su lengua materna.',
-        'Leer diversos tipos de textos escritos en su lengua materna.',
-        'Escribir diversos tipos de textos en su lengua materna.'
-      ]
-    },
-  };
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +19,8 @@ class CategoriesScroller extends StatelessWidget {
                 fit: BoxFit.fill,
                 alignment: Alignment.topCenter,
                 child: Row(
-                    children:
-                        listCourses(courses, categoryHeight, categoryWidth)))));
+                    children: listCourses(
+                        coursesMap, categoryHeight, categoryWidth)))));
   }
 }
 

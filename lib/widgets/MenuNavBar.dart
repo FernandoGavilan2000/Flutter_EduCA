@@ -1,52 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/providers/Course.dart';
 import 'package:flutter_educa/providers/User.dart';
+import 'package:flutter_educa/utils/courses.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:provider/provider.dart';
 
 class MenuNavBar extends StatelessWidget {
   const MenuNavBar({Key? key}) : super(key: key);
 
-  static Map<String, Map<String, dynamic>> courses = {
-    'Comunicación': {
-      'api_path': 'comunicacion',
-      'goals': [
-        'Comunicar oralmente en su lengua materna.',
-        'Leer diversos tipos de textos escritos en su lengua materna.',
-        'Escribir diversos tipos de textos en su lengua materna.'
-      ]
-    },
-    'Ingles': {
-      'api_path': 'ingles',
-      'goals': [
-        'Comunicar oralmente en su lengua materna.',
-        'Leer diversos tipos de textos escritos en su lengua materna.',
-        'Escribir diversos tipos de textos en su lengua materna.'
-      ]
-    },
-    'Matemáticas': {
-      'api_path': 'matematicas',
-      'goals': [
-        'Comunicar oralmente en su lengua materna.',
-        'Leer diversos tipos de textos escritos en su lengua materna.',
-        'Escribir diversos tipos de textos en su lengua materna.'
-      ]
-    },
-    'Sociales': {
-      'api_path': 'sociales',
-      'goals': [
-        'Comunicar oralmente en su lengua materna.',
-        'Leer diversos tipos de textos escritos en su lengua materna.',
-        'Escribir diversos tipos de textos en su lengua materna.'
-      ]
-    },
-  };
-
   @override
   Widget build(BuildContext context) {
     String userImage = Provider.of<UserProvider>(context).userImage;
     String firstName = Provider.of<UserProvider>(context).firstName;
     String userEmail = Provider.of<UserProvider>(context).userEmail;
+
+    void linkCourse(String courseName, String coursePath, List<String> goals) {
+      Provider.of<CourseProvider>(context, listen: false)
+          .changeCourse(courseName, coursePath, goals);
+      Navigator.of(context).pushNamed('/course');
+    }
+
     return Drawer(
       child: ListView(
         // Remove padding
@@ -115,7 +88,12 @@ class MenuNavBar extends StatelessWidget {
                 align: TextAlign.left,
                 bold: true,
               ),
-              onTap: () {}),
+              onTap: () {
+                linkCourse(
+                    coursesMap.keys.elementAt(0),
+                    coursesMap.values.elementAt(0)['api_path'],
+                    coursesMap.values.elementAt(0)['goals']);
+              }),
           ListTile(
             leading: const Icon(Icons.layers_outlined),
             title: const CustomSubTitle(
@@ -124,7 +102,12 @@ class MenuNavBar extends StatelessWidget {
               align: TextAlign.left,
               bold: true,
             ),
-            onTap: () => null,
+            onTap: () {
+              linkCourse(
+                  coursesMap.keys.elementAt(1),
+                  coursesMap.values.elementAt(1)['api_path'],
+                  coursesMap.values.elementAt(1)['goals']);
+            },
           ),
           ListTile(
             leading: const Icon(Icons.layers_outlined),
@@ -134,18 +117,27 @@ class MenuNavBar extends StatelessWidget {
               align: TextAlign.left,
               bold: true,
             ),
-            onTap: () => null,
+            onTap: () {
+              linkCourse(
+                  coursesMap.keys.elementAt(2),
+                  coursesMap.values.elementAt(2)['api_path'],
+                  coursesMap.values.elementAt(2)['goals']);
+            },
           ),
           ListTile(
-            leading: const Icon(Icons.layers_outlined),
-            title: const CustomSubTitle(
-              text: 'Sociales',
-              fontSize: 15,
-              align: TextAlign.left,
-              bold: true,
-            ),
-            onTap: () => null,
-          ),
+              leading: const Icon(Icons.layers_outlined),
+              title: const CustomSubTitle(
+                text: 'Sociales',
+                fontSize: 15,
+                align: TextAlign.left,
+                bold: true,
+              ),
+              onTap: () {
+                linkCourse(
+                    coursesMap.keys.elementAt(3),
+                    coursesMap.values.elementAt(3)['api_path'],
+                    coursesMap.values.elementAt(3)['goals']);
+              }),
           ListTile(
             leading: const Icon(Icons.login_outlined),
             title: const CustomSubTitle(
@@ -154,7 +146,9 @@ class MenuNavBar extends StatelessWidget {
               align: TextAlign.left,
               bold: true,
             ),
-            onTap: () => null,
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed('/');
+            },
           ),
         ],
       ),
