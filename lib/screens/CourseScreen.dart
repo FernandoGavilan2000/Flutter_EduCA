@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_educa/providers/Course.dart';
 import 'package:flutter_educa/widgets/HeaderCard.dart';
 import 'package:flutter_educa/widgets/MenuNavBar.dart';
+import 'package:flutter_educa/widgets/ShapeFormOne.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/Text/CustomSubTitle.dart';
@@ -42,12 +43,6 @@ class CourseScreen extends StatelessWidget {
                     Center(
                       child: Column(
                         children: [
-                          Container(
-                              width: widthScreen * 0.30,
-                              height: widthScreen * 0.30,
-                              decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color.fromARGB(255, 18, 127, 252))),
                           const SizedBox(
                             height: 10,
                           ),
@@ -56,21 +51,87 @@ class CourseScreen extends StatelessWidget {
                             color: Colors.black,
                             bold: true,
                           ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          const ShapeOne(size: 60),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 60),
-                    const CustomText(
-                      text: 'Competencias:',
+                    const SizedBox(height: 30),
+                    /* Row(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(left: 8),
+                          padding: const EdgeInsets.all(9),
+                          decoration: const BoxDecoration(
+                              color: Color.fromRGBO(104, 160, 255, 1),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5))),
+                          child: const CustomText(
+                            text: "Competencias",
+                            fontSize: 15,
+                            color: Colors.white,
+                            bold: true,
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 12),
+                          decoration: const BoxDecoration(
+                              color: Color.fromRGBO(118, 193, 255, 1),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5))),
+                          child: const CustomText(
+                            text: "Sesiones",
+                            fontSize: 15,
+                            color: Colors.white,
+                            bold: true,
+                          ),
+                        ),
+                      ],
+                    ), */
+                    //const SizedBox(height: 20),
+                    const CustomSubTitle(
+                      text: "!Desarrollemos una competencia juntos!",
                       bold: true,
                     ),
-                    const SizedBox(height: 20),
-                    Container(
+                    const SizedBox(
+                      height: 75,
+                    ),
+                    Stack(
+                      alignment: const Alignment(0.0, -1.5),
+                      children: [
+                        SizedBox(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Container(
+                              margin: EdgeInsets.all(widthScreen * 0.025),
+                              child: Row(
+                                children:
+                                    listCompetencias(courseName, courseGoals),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 95,
+                          width: 95,
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            backgroundImage:
+                                AssetImage('assets/avatar_dog.png'),
+                          ),
+                        ),
+                      ],
+                    ),
+                    /* Container(
                       margin: EdgeInsets.all(widthScreen * 0.025),
                       child: Column(
                         children: listCompetencias(courseName, courseGoals),
                       ),
-                    )
+                    ), */
                   ]),
             ),
           ),
@@ -89,20 +150,20 @@ List<Widget> listCompetencias(String name, List<String>? goals) {
           listCards.add(CompetenciaCard(
               nameCourse: name,
               label: goals[i],
-              background: const Color.fromARGB(255, 60, 221, 66)));
+              background: const Color.fromRGBO(104, 160, 255, 1)));
           break;
         case 1:
           listCards.add(CompetenciaCard(
             nameCourse: name,
             label: goals[i],
-            background: const Color.fromARGB(255, 65, 107, 243),
+            background: const Color.fromRGBO(151, 130, 255, 1),
           ));
           break;
         case 2:
           listCards.add(CompetenciaCard(
             nameCourse: name,
             label: goals[i],
-            background: const Color.fromARGB(255, 241, 80, 68),
+            background: const Color.fromRGBO(67, 101, 255, 1),
           ));
           break;
         case 3:
@@ -144,18 +205,18 @@ class CompetenciaCard extends StatelessWidget {
         Navigator.of(context).pushNamed('/recursos');
       },
       child: Container(
-        margin: const EdgeInsets.only(bottom: 20),
+        margin: const EdgeInsets.only(right: 20),
         padding: const EdgeInsets.only(left: 12, right: 12),
         decoration: BoxDecoration(
             color: background, borderRadius: BorderRadius.circular(12)),
-        width: double.infinity,
-        height: 100,
+        width: 230,
+        height: 280,
         child: Center(
           child: CustomSubTitle(
-              align: TextAlign.left,
+              align: TextAlign.center,
               bold: true,
               color: Colors.white,
-              fontSize: 18,
+              fontSize: 25,
               text: label),
         ),
       ),
