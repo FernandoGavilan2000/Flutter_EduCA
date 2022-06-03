@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/providers/Course.dart';
 import 'package:flutter_educa/widgets/HeaderCard.dart';
-import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
+import 'package:flutter_educa/widgets/MenuNavBar.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/Text/CustomText.dart';
@@ -26,6 +26,7 @@ class RecursosScreen extends StatelessWidget {
                     fit: BoxFit.fill,
                     image: AssetImage('assets/CourseBackground.png'))),
             child: Scaffold(
+              drawer: const MenuNavBar(),
               backgroundColor: Colors.transparent,
               body: SingleChildScrollView(
                 child: Container(

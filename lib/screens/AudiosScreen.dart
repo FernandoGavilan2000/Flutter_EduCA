@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/widgets/AudiosScroller.dart';
 import 'package:flutter_educa/widgets/HeaderCard.dart';
+import 'package:flutter_educa/widgets/MenuNavBar.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import '../widgets/Text/CustomText.dart';
 import '../widgets/Text/CustomTitle.dart';
@@ -18,6 +19,7 @@ class AudiosScreen extends StatelessWidget {
                 fit: BoxFit.fitWidth,
                 image: AssetImage('assets/whiteVector.png'))),
         child: Scaffold(
+          drawer: const MenuNavBar(),
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
             child: Container(

@@ -3,8 +3,6 @@ import 'package:flutter_educa/models/quizzquestions.dart';
 import 'package:flutter_educa/providers/Course.dart';
 import 'package:flutter_educa/services/remote_service.dart';
 import 'package:flutter_educa/widgets/Alerts/AnswerMessage.dart';
-import 'package:flutter_educa/widgets/Buttons/LargeButton.dart';
-import 'package:flutter_educa/widgets/Buttons/MediumButton.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:flutter_educa/widgets/Text/CustomText.dart';
 import 'package:flutter_educa/widgets/Text/CustomTitle.dart';

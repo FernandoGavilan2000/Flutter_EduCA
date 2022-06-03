@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_educa/widgets/CardNewRecord.dart';
 import 'package:flutter_educa/widgets/CategoriesScroller.dart';
 import 'package:flutter_educa/widgets/HeaderCard.dart';
+import 'package:flutter_educa/widgets/MenuNavBar.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:flutter_educa/widgets/Text/CustomText.dart';
 
@@ -12,6 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: const MenuNavBar(),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Container(

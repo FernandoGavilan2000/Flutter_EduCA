@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_educa/models/reading.dart';
 import 'package:flutter_educa/services/remote_service.dart';
 import 'package:flutter_educa/widgets/HeaderCard.dart';
+import 'package:flutter_educa/widgets/MenuNavBar.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 
 import '../widgets/Text/CustomText.dart';
@@ -21,6 +22,7 @@ class LecturasScreen extends StatelessWidget {
                 fit: BoxFit.fitWidth,
                 image: AssetImage('assets/blueVector.png'))),
         child: Scaffold(
+          drawer: const MenuNavBar(),
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
             child: Column(

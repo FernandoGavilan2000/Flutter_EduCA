@@ -1,5 +1,6 @@
 import 'package:flutter_educa/providers/Course.dart';
 import 'package:flutter_educa/widgets/HeaderCard.dart';
+import 'package:flutter_educa/widgets/MenuNavBar.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +46,7 @@ class _VideosScreenState extends State<VideosScreen> {
                 fit: BoxFit.fitWidth,
                 image: AssetImage('assets/whiteVector.png'))),
         child: Scaffold(
+          drawer: const MenuNavBar(),
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
             child: Column(

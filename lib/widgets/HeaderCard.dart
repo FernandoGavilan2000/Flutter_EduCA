@@ -35,29 +35,34 @@ class HeaderCard extends StatelessWidget {
                 flex: 50,
                 child: SizedBox(
                   width: double.infinity,
-                  child: Row(children: [
-                    Icon(
-                      Icons.menu,
-                      color: educaColor,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Row(
-                      children: [
-                        CustomText(
-                          text: "Edu",
-                          color: educaColor,
-                        ),
-                        CustomText(
-                          text: "CA",
-                          bold: true,
-                          color: educaColor,
-                        ),
-                      ],
-                    )
-                  ]),
+                  child: InkWell(
+                    onTap: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    child: Row(children: [
+                      Icon(
+                        Icons.menu,
+                        color: educaColor,
+                        size: 20,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Row(
+                        children: [
+                          CustomText(
+                            text: "Edu",
+                            color: educaColor,
+                          ),
+                          CustomText(
+                            text: "CA",
+                            bold: true,
+                            color: educaColor,
+                          ),
+                        ],
+                      )
+                    ]),
+                  ),
                 ),
               ),
               //Profile avatar and ...
