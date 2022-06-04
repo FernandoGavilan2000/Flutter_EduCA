@@ -46,7 +46,7 @@ class RecursosScreen extends StatelessWidget {
                         child: CustomTitle(
                           text: courseName,
                           bold: true,
-                          fontSize: 40,
+                          fontSize: 35,
                           color: Colors.black,
                         ),
                       ),
@@ -57,7 +57,7 @@ class RecursosScreen extends StatelessWidget {
                         text: 'Recursos:',
                         color: Colors.black,
                         bold: false,
-                        fontSize: 25,
+                        fontSize: 22,
                       ),
                       const SizedBox(
                         height: 25,
@@ -223,11 +223,11 @@ class CardResource extends StatelessWidget {
                       children: [
                         CustomText(
                           text: resourceName,
-                          fontSize: 24,
+                          fontSize: 21,
                           bold: true,
                         ),
-                        const CustomText(
-                          text: "12 Lecturas",
+                        CustomText(
+                          text: "12 ${resourceName}",
                           fontSize: 10,
                           bold: true,
                         ),

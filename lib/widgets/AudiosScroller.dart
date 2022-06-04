@@ -11,7 +11,7 @@ class AudiosScroller extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Container(
         margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.1),
-        padding: const EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.only(top: 5),
         decoration: const BoxDecoration(
           color: Color.fromRGBO(234, 235, 255, 1),
         ),

@@ -214,14 +214,14 @@ class CompetenciaCard extends StatelessWidget {
         padding: const EdgeInsets.only(left: 12, right: 12),
         decoration: BoxDecoration(
             color: background, borderRadius: BorderRadius.circular(12)),
-        width: 230,
+        width: 220,
         height: 280,
         child: Center(
           child: CustomSubTitle(
               align: TextAlign.center,
               bold: true,
               color: Colors.white,
-              fontSize: 25,
+              fontSize: 22,
               text: label),
         ),
       ),

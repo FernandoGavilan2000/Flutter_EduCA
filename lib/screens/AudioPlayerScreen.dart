@@ -34,7 +34,7 @@ class AudioPlayerScreen extends StatelessWidget {
                   children: const [
                     CustomTitle(
                       text: 'El Caballero Carmelo',
-                      fontSize: 35,
+                      fontSize: 32,
                       bold: true,
                     ),
                     SizedBox(
@@ -42,7 +42,7 @@ class AudioPlayerScreen extends StatelessWidget {
                     ),
                     CustomTitle(
                       text: 'Un valiente gallito',
-                      fontSize: 20,
+                      fontSize: 18,
                     )
                   ],
                 ),

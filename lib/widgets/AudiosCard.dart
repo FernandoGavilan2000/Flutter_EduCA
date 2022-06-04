@@ -26,19 +26,15 @@ class AudiosCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
+          const Expanded(
             flex: 10,
-            child: Container(
-              margin: const EdgeInsets.only(right: 10),
-              width: 25,
-              height: 25,
-              decoration: const BoxDecoration(
-                  color: colorBlue,
-                  borderRadius: BorderRadius.all(Radius.circular(100))),
+            child: CircleAvatar(
+              backgroundColor: colorBlue,
+              radius: 8,
             ),
           ),
           Expanded(
-            flex: 70,
+            flex: 80,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +42,7 @@ class AudiosCard extends StatelessWidget {
                 CustomTitle(
                   text: titleText,
                   color: colorBlue,
-                  fontSize: 20,
+                  fontSize: 15,
                 ),
                 CustomSubTitle(
                   text: description,
@@ -73,7 +69,7 @@ class AudiosCard extends StatelessWidget {
                     CustomSubTitle(
                       text: 'Play',
                       color: colorNegro,
-                      fontSize: 10,
+                      fontSize: 9,
                       bold: true,
                     ),
                   ],

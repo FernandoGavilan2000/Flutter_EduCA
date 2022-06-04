@@ -41,7 +41,7 @@ class InicioScreen extends StatelessWidget {
                   ],
                 ),
                 Container(
-                  margin: const EdgeInsets.all(45),
+                  margin: const EdgeInsets.all(50),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

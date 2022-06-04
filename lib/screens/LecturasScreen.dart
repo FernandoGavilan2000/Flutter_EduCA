@@ -53,7 +53,7 @@ class LecturasScreen extends StatelessWidget {
                         const CustomSubTitle(
                           color: Color.fromRGBO(69, 84, 255, 1),
                           text: 'Lecturas',
-                          fontSize: 35,
+                          fontSize: 34,
                           bold: true,
                         ),
                         const SizedBox(height: 20),
@@ -64,6 +64,7 @@ class LecturasScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const CustomText(
+                                  fontSize: 20,
                                   text: "Sesiones",
                                   bold: true,
                                 ),
@@ -103,7 +104,7 @@ class LecturasScreen extends StatelessWidget {
                         )
                       ]),
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
                 Lecturas(
                   course: course,
                 )
@@ -227,7 +228,7 @@ class CardLecture extends StatelessWidget {
                   children: [
                     CustomSubTitle(
                       text: title,
-                      fontSize: 18,
+                      fontSize: 15,
                       bold: true,
                     ),
                     Text(
@@ -264,12 +265,13 @@ class CardNumber extends StatelessWidget {
       ),
       child: Center(
         child: CustomTitle(
+          fontSize: 32,
           text: number,
           bold: true,
         ),
       ),
-      width: 70,
-      height: 70,
+      width: 55,
+      height: 55,
     );
   }
 }

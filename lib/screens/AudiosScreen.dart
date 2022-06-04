@@ -46,13 +46,13 @@ class AudiosScreen extends StatelessWidget {
                                 CustomSubTitle(
                                   text: '¡Escuchemos más!',
                                   color: Colors.white,
-                                  fontSize: 22,
+                                  fontSize: 20,
                                 ),
                                 CustomSubTitle(
                                   color: Colors.white,
                                   text: 'Audios',
                                   bold: true,
-                                  fontSize: 50,
+                                  fontSize: 45,
                                 )
                               ]),
                             )

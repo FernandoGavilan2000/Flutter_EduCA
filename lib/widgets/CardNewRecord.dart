@@ -41,11 +41,11 @@ class CardNewRecord extends StatelessWidget {
                 CustomText(
                   text: title,
                   bold: true,
-                  fontSize: 17,
+                  fontSize: 16,
                 ),
                 CustomText(
                   text: subtitle,
-                  fontSize: 14,
+                  fontSize: 13,
                 )
               ],
             ),
@@ -53,8 +53,8 @@ class CardNewRecord extends StatelessWidget {
         ),
         Image.asset(
           'assets/trophy.png',
-          width: 42,
-          height: 42,
+          width: 39,
+          height: 39,
         )
       ]),
     );

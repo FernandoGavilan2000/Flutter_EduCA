@@ -25,12 +25,12 @@ class AnswerMessage extends StatelessWidget {
                   children: [
                     const CustomSubTitle(
                       text: '!Felicitaciones!',
-                      fontSize: 30,
+                      fontSize: 28,
                       bold: true,
                     ),
                     CustomSubTitle(
                       text: '${counter} correctas',
-                      fontSize: 26,
+                      fontSize: 25,
                       bold: true,
                     ),
                     const SizedBox(
@@ -38,7 +38,7 @@ class AnswerMessage extends StatelessWidget {
                     ),
                     Image.asset(
                       'assets/trophy.png',
-                      scale: 0.8,
+                      scale: 1,
                     ),
                     const SizedBox(
                       height: 15,

@@ -237,21 +237,21 @@ class QuizContent extends StatelessWidget {
                     text: "${index + 1}.",
                     bold: true,
                     color: Colors.black,
-                    fontSize: 45,
+                    fontSize: 40,
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   Text(
                     question.titulo,
                     style: GoogleFonts.raleway(
                       color: Colors.black,
-                      fontSize: 22,
+                      fontSize: 20,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
                   const SizedBox(
-                    height: 35,
+                    height: 30,
                   ),
                   Column(
                     children: listOptions(question.options, answersheet, index,
@@ -303,7 +303,7 @@ Widget option(String option, bool isMarked, int index, Function callback) {
     },
     child: Container(
       width: double.infinity,
-      height: 40,
+      height: 42,
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       margin: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
@@ -314,7 +314,7 @@ Widget option(String option, bool isMarked, int index, Function callback) {
           ]),
       child: CustomTitle(
         text: option,
-        fontSize: 18,
+        fontSize: 16,
         bold: true,
         color: isMarked ? Colors.white : Colors.black,
       ),

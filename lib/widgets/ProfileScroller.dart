@@ -62,12 +62,12 @@ class ProfileDetail extends StatelessWidget {
               CustomText(
                 text: "${title}:",
                 color: const Color.fromRGBO(109, 96, 248, 1),
-                fontSize: 18,
+                fontSize: 17,
                 bold: true,
               ),
               CustomText(
                 text: description,
-                fontSize: 17,
+                fontSize: 15,
                 bold: true,
               )
             ]),

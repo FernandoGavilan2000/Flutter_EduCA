@@ -22,7 +22,7 @@ class ReadLecturaScreen extends StatelessWidget {
               ),
               Container(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+                    const EdgeInsets.symmetric(vertical: 40, horizontal: 18),
                 width: double.infinity,
                 constraints: BoxConstraints(
                     minHeight: MediaQuery.of(context).size.height * 0.55),
@@ -31,23 +31,24 @@ class ReadLecturaScreen extends StatelessWidget {
                   CustomTitle(
                     text: data['title'],
                     bold: true,
-                    fontSize: 30,
+                    fontSize: 27,
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+
+                  /*
                   CustomTitle(
                     text: 'ABRAHAM VALDELOMAR',
                     bold: false,
                     fontSize: 15,
                   ),
+                  */
                   const SizedBox(
                     height: 20,
                   ),
                   Text(
                     data['text'],
                     textAlign: TextAlign.justify,
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: TextStyle(
+                        color: Colors.white, fontSize: 16, height: 1.5),
                   )
                 ]),
               )

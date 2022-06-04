@@ -83,7 +83,7 @@ class HeaderCard extends StatelessWidget {
                           textAlign: TextAlign.right,
                           style: GoogleFonts.raleway(
                             color: messageColor,
-                            fontSize: 13,
+                            fontSize: 11,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
