@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_educa/providers/Course.dart';
 import 'package:flutter_educa/widgets/HeaderCard.dart';
 import 'package:flutter_educa/widgets/MenuNavBar.dart';
+import 'package:flutter_educa/widgets/ShapeFormOne.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/Text/CustomText.dart';
@@ -75,10 +76,8 @@ class RecursosScreen extends StatelessWidget {
                                     categoryWidth: categoryWidth,
                                     resourceName: "Lecturas",
                                     pathImage: "assets/lec.png",
-                                    colorImage: const Color.fromARGB(
-                                        255, 159, 144, 235),
-                                    colorFondo:
-                                        const Color.fromRGBO(236, 232, 255, 1),
+                                    colorImage: HexColor('C0B3FF'),
+                                    colorFondo: HexColor('ECE8FF'),
                                   ),
                                   SizedBox(
                                     width: space,
@@ -89,10 +88,8 @@ class RecursosScreen extends StatelessWidget {
                                     categoryWidth: categoryWidth,
                                     resourceName: "Quizzes",
                                     pathImage: "assets/quizes.png",
-                                    colorImage: const Color.fromARGB(
-                                        255, 143, 238, 168),
-                                    colorFondo:
-                                        const Color.fromRGBO(210, 251, 221, 1),
+                                    colorImage: HexColor('9FF5B6'),
+                                    colorFondo: HexColor('D2FBDD'),
                                   )
                                 ],
                               ),
@@ -108,10 +105,8 @@ class RecursosScreen extends StatelessWidget {
                                     categoryWidth: categoryWidth,
                                     resourceName: "Audios",
                                     pathImage: "assets/audios.png",
-                                    colorImage: const Color.fromARGB(
-                                        255, 241, 184, 179),
-                                    colorFondo:
-                                        const Color.fromRGBO(254, 234, 232, 1),
+                                    colorImage: HexColor('FEC8C3'),
+                                    colorFondo: HexColor('FEEAE8'),
                                   ),
                                   const SizedBox(
                                     width: 25,
@@ -122,10 +117,8 @@ class RecursosScreen extends StatelessWidget {
                                     categoryWidth: categoryWidth,
                                     resourceName: "Videos",
                                     pathImage: "assets/videos.png",
-                                    colorImage: const Color.fromARGB(
-                                        255, 167, 214, 241),
-                                    colorFondo:
-                                        const Color.fromRGBO(212, 239, 255, 1),
+                                    colorImage: HexColor('78CDFF'),
+                                    colorFondo: HexColor('D4EFFF'),
                                   )
                                 ],
                               ),

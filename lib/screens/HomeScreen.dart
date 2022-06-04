@@ -33,13 +33,17 @@ class HomeScreen extends StatelessWidget {
                   CustomSubTitle(
                     text: 'Fernando!',
                     bold: true,
-                    fontSize: 30,
+                    fontSize: 35,
                   ),
                 ],
               ),
+              const CustomSubTitle(
+                text: 'Talento EduCA',
+                fontSize: 20,
+              ),
               const SizedBox(height: 50),
               const CustomText(
-                text: 'Cursos en proceso',
+                text: 'Empecemos con:',
                 bold: true,
               ),
               const CategoriesScroller(),

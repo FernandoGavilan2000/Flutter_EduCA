@@ -54,7 +54,7 @@ class ProfileUserScreen extends StatelessWidget {
                       width: 130,
                       height: 130,
                       image: NetworkImage(
-                          'https://upload.wikimedia.org/wikipedia/commons/f/f7/Código_QR_a_Wikimedia_Venezuela.png')),
+                          'https://firebasestorage.googleapis.com/v0/b/api-hackunica.appspot.com/o/fotos%2FGDSC-UNICA.png?alt=media&token=09c3e9b1-0cf1-4415-9dad-47e0e68afb58')),
                   CustomSubTitle(
                     text: 'Codigo de Talento',
                     bold: true,

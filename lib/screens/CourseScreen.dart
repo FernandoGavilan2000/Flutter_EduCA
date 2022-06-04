@@ -54,7 +54,12 @@ class CourseScreen extends StatelessWidget {
                           const SizedBox(
                             height: 30,
                           ),
-                          const ShapeOne(size: 60),
+                          const CircleShapeOne(
+                            size: 60,
+                            firstColor: '4365FF',
+                            secondColor: '3DA8FF',
+                            opacitySecondColor: 0.7083,
+                          ),
                         ],
                       ),
                     ),

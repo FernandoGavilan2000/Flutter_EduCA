@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/widgets/ShapeFormOne.dart';
 
 import 'Text/CustomText.dart';
 
@@ -15,29 +16,46 @@ class CardNewRecord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 42,
+      height: 52,
       margin: const EdgeInsets.only(bottom: 20),
       //decoration: BoxDecoration(color: Colors.red),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Image.network(
-            'https://toppng.com/uploads/preview/vector-triangle-11549968501firyzupx6o.png'),
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+          decoration: BoxDecoration(
+              color: HexColor('D7E6FF'),
+              borderRadius: BorderRadius.circular(7)),
+          child: const CircleShapeTwo(
+              size: 25,
+              firstColor: '4365FF',
+              secondColor: '67C8FF',
+              opacitySecondColor: 0.8051),
+        ),
         Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomText(
-                text: title,
-                bold: true,
-                fontSize: 17,
-              ),
-              CustomText(
-                text: subtitle,
-                fontSize: 14,
-              )
-            ],
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(
+                  text: title,
+                  bold: true,
+                  fontSize: 17,
+                ),
+                CustomText(
+                  text: subtitle,
+                  fontSize: 14,
+                )
+              ],
+            ),
           ),
         ),
-        Image.asset('assets/trophy.png')
+        Image.asset(
+          'assets/trophy.png',
+          width: 42,
+          height: 42,
+        )
       ]),
     );
   }

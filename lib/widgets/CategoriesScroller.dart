@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_educa/providers/Course.dart';
 import 'package:flutter_educa/utils/courses.dart';
+import 'package:flutter_educa/widgets/ShapeFormOne.dart';
+import 'package:flutter_educa/widgets/Text/CustomTitle.dart';
 import 'package:provider/provider.dart';
 
 class CategoriesScroller extends StatelessWidget {
@@ -26,33 +28,104 @@ class CategoriesScroller extends StatelessWidget {
 
 List<Widget> listCourses(Map courses, double height, double width) {
   List<Widget> cardCourses = [];
+  int i = 0;
   courses.forEach((key, value) {
-    cardCourses.add(CardCourse(
+    switch (i) {
+      case 0:
+        cardCourses.add(CardCourse(
+          categoryHeight: height,
+          categoryWidth: width,
+          courseName: key,
+          coursePath: value['api_path'],
+          goals: value['goals'],
+          firstColor: '4087FF',
+          secondColor: '3DA8FF',
+          opacitySecondColor: 0.7083,
+        ));
+        break;
+      case 1:
+        cardCourses.add(CardCourse(
+          categoryHeight: height,
+          categoryWidth: width,
+          courseName: key,
+          coursePath: value['api_path'],
+          goals: value['goals'],
+          firstColor: '4DB8CF',
+          secondColor: '327DFD',
+          opacitySecondColor: 0.7083,
+        ));
+        break;
+      case 2:
+        cardCourses.add(CardCourse(
+          categoryHeight: height,
+          categoryWidth: width,
+          courseName: key,
+          coursePath: value['api_path'],
+          goals: value['goals'],
+          firstColor: 'F85C5C',
+          secondColor: '3DA8FF',
+          opacitySecondColor: 0.7083,
+        ));
+        break;
+      case 3:
+        cardCourses.add(CardCourse(
+          categoryHeight: height,
+          categoryWidth: width,
+          courseName: key,
+          coursePath: value['api_path'],
+          goals: value['goals'],
+          firstColor: 'C2B5FF',
+          secondColor: '327DFD',
+          opacitySecondColor: 0.7083,
+        ));
+        break;
+
+      default:
+        cardCourses.add(CardCourse(
+          categoryHeight: height,
+          categoryWidth: width,
+          courseName: key,
+          coursePath: value['api_path'],
+          goals: value['goals'],
+          firstColor: '4087FF',
+          secondColor: '3DA8FF',
+          opacitySecondColor: 0.7083,
+        ));
+        break;
+    }
+    i++;
+    /* cardCourses.add(CardCourse(
       categoryHeight: height,
       categoryWidth: width,
       courseName: key,
       coursePath: value['api_path'],
       goals: value['goals'],
-    ));
+    )); */
   });
   return cardCourses;
 }
 
 class CardCourse extends StatelessWidget {
-  const CardCourse(
-      {Key? key,
-      required this.categoryHeight,
-      required this.categoryWidth,
-      required this.courseName,
-      required this.goals,
-      required this.coursePath})
-      : super(key: key);
+  const CardCourse({
+    Key? key,
+    required this.categoryHeight,
+    required this.categoryWidth,
+    required this.courseName,
+    required this.goals,
+    required this.coursePath,
+    required this.firstColor,
+    required this.secondColor,
+    required this.opacitySecondColor,
+  }) : super(key: key);
 
   final double categoryHeight;
   final double categoryWidth;
   final String courseName;
   final List<String> goals;
   final String coursePath;
+  final String firstColor;
+  final String secondColor;
+  final double opacitySecondColor;
 
   @override
   Widget build(BuildContext context) {
@@ -76,23 +149,21 @@ class CardCourse extends StatelessWidget {
             children: <Widget>[
               FittedBox(
                 fit: BoxFit.scaleDown,
-                child: Text(
-                  courseName,
-                  style: const TextStyle(
-                      fontSize: 35,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
+                child: CustomTitle(
+                  text: courseName,
+                  bold: true,
+                  color: Colors.black,
+                  fontSize: 30,
                 ),
               ),
               const SizedBox(
                 height: 15,
               ),
-              Container(
-                  width: 120,
-                  height: 120,
-                  decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color.fromARGB(255, 18, 127, 252)))
+              CircleShapeTwo(
+                  size: 120,
+                  firstColor: firstColor,
+                  secondColor: secondColor,
+                  opacitySecondColor: opacitySecondColor),
             ],
           ),
         ),

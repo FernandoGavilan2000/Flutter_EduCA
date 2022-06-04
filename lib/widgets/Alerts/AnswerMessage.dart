@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_educa/widgets/ShapeFormOne.dart';
 import 'package:flutter_educa/widgets/Text/CustomSubTitle.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,7 +17,7 @@ class AnswerMessage extends StatelessWidget {
           clipBehavior: Clip.none,
           alignment: Alignment.topCenter,
           children: [
-            Container(
+            SizedBox(
               height: 335,
               child: Padding(
                 padding: const EdgeInsets.only(top: 50),
@@ -52,7 +53,7 @@ class AnswerMessage extends StatelessWidget {
                             '/home', (Route<dynamic> route) => false);
                       },
                       style:
-                          ElevatedButton.styleFrom(primary: Colors.redAccent),
+                          ElevatedButton.styleFrom(primary: HexColor('4557FF')),
                       child: Padding(
                         padding: const EdgeInsets.all(9),
                         child: Text(
@@ -68,12 +69,12 @@ class AnswerMessage extends StatelessWidget {
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
                 top: -60,
                 child: CircleAvatar(
-                  backgroundColor: Colors.redAccent,
+                  backgroundColor: HexColor('4557FF'),
                   radius: 50,
-                  child: Icon(
+                  child: const Icon(
                     Icons.flag,
                     color: Colors.white,
                     size: 45,
