@@ -194,7 +194,7 @@ class QuizContent extends StatelessWidget {
         Expanded(
           flex: 14,
           child: Container(
-            margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+            margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
             width: double.infinity,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -227,7 +227,7 @@ class QuizContent extends StatelessWidget {
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(35))),
-              margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.06),
+              margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
               padding: const EdgeInsets.all(28),
               width: double.infinity,
               child: Column(
@@ -246,7 +246,7 @@ class QuizContent extends StatelessWidget {
                     question.titulo,
                     style: GoogleFonts.raleway(
                       color: Colors.black,
-                      fontSize: 20,
+                      fontSize: 19,
                       fontWeight: FontWeight.w800,
                     ),
                   ),

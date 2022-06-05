@@ -41,7 +41,7 @@ class RouteGenerator {
       case '/lectura_demo':
         return MaterialPageRoute(builder: (_) => ReadLecturaScreen(data: args));
       case '/audio_demo':
-        return MaterialPageRoute(builder: (_) => const AudioPlayerScreen());
+        return MaterialPageRoute(builder: (_) => AudioPlayerScreen(data: args));
       case '/quiz_demo':
         return MaterialPageRoute(
             builder: (_) => AnswerScreen(

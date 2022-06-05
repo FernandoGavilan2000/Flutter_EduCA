@@ -57,7 +57,12 @@ class AudiosCard extends StatelessWidget {
             child: Container(
               child: InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamed('/audio_demo');
+                  Map<String, String> data = {
+                    'title': titleText,
+                    'descrip': description,
+                  };
+                  Navigator.of(context)
+                      .pushNamed('/audio_demo', arguments: data);
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

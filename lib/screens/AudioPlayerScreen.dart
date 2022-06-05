@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_educa/widgets/Text/CustomTitle.dart';
 
 class AudioPlayerScreen extends StatelessWidget {
-  const AudioPlayerScreen({Key? key}) : super(key: key);
+  final Map data;
+  const AudioPlayerScreen({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,18 +32,18 @@ class AudioPlayerScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     CustomTitle(
-                      text: 'El Caballero Carmelo',
+                      text: data['title'],
                       fontSize: 32,
                       bold: true,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     CustomTitle(
-                      text: 'Un valiente gallito',
-                      fontSize: 18,
+                      text: data['descrip'],
+                      fontSize: 14,
                     )
                   ],
                 ),
