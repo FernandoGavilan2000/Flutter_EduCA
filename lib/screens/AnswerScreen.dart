@@ -227,7 +227,7 @@ class QuizContent extends StatelessWidget {
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(35))),
-              margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
+              margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.04),
               padding: const EdgeInsets.all(28),
               width: double.infinity,
               child: Column(
