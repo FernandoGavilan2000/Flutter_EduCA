@@ -34,10 +34,10 @@
 
 ## Images:
 
-![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661560510/Solution2022/SCREEN/Ultimate/Inicio_gml8gz.png>)
-![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661560509/Solution2022/SCREEN/Ultimate/Home_h9ardt.png>)
-![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661560510/Solution2022/SCREEN/Ultimate/Competencias_kajxud.png>)
-![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661560509/Solution2022/SCREEN/Ultimate/Recursos_qmlmem.png>)
+![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661561188/Solution2022/SCREEN/NUEVAS/Inicio_ck8txh.png>)
+![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661561185/Solution2022/SCREEN/NUEVAS/Home_htylt5.png>)
+![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661561185/Solution2022/SCREEN/NUEVAS/Competencias_xejd2e.png>)
+![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661561185/Solution2022/SCREEN/NUEVAS/Recursos_ubfl4l.png>)
 
 ## Team Members:
 
