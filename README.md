@@ -34,12 +34,12 @@
 
 ## Images:
 
-![Image text](<https://firebasestorage.googleapis.com/v0/b/api-hackunica.appspot.com/o/assets%2Fcapturas%2FInicio%20(2).png?alt=media&token=ca699577-75e1-42de-aabf-54eeb8f68f9c>)
-![Image text](<https://firebasestorage.googleapis.com/v0/b/api-hackunica.appspot.com/o/assets%2Fcapturas%2FHome%20(1).png?alt=media&token=0370984b-1ddb-4d09-b6e7-9ac5de0a7434>)
-![Image text](<https://firebasestorage.googleapis.com/v0/b/api-hackunica.appspot.com/o/assets%2Fcapturas%2FCourse%20-Comunicacion%20competencias%20(1).png?alt=media&token=ceb09fb6-686f-48a2-b659-577e26f4a4e6>)
-![Image text](<https://firebasestorage.googleapis.com/v0/b/api-hackunica.appspot.com/o/assets%2Fcapturas%2FLecturas%20(1).png?alt=media&token=4d82d999-5225-4ea7-90ba-5fe63a77456d>)
+![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661560510/Solution2022/SCREEN/Ultimate/Inicio_gml8gz.png>)
+![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661560509/Solution2022/SCREEN/Ultimate/Home_h9ardt.png>)
+![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661560510/Solution2022/SCREEN/Ultimate/Competencias_kajxud.png>)
+![Image text](<https://res.cloudinary.com/drfx5ryus/image/upload/v1661560509/Solution2022/SCREEN/Ultimate/Recursos_qmlmem.png>)
 
 ## Team Members:
 
-![Image text](https://firebasestorage.googleapis.com/v0/b/api-hackunica.appspot.com/o/fotos%2Fgithub%2Ffoto1.png?alt=media&token=b0177d8e-66cf-47eb-a873-0c38604c5948)
-![Image text](https://firebasestorage.googleapis.com/v0/b/api-hackunica.appspot.com/o/fotos%2Fgithub%2Ffoto2.png?alt=media&token=6952b3d6-5f70-49e0-8375-80e483f38db3)
+![Image text](https://res.cloudinary.com/drfx5ryus/image/upload/v1661560281/Solution2022/Fotos/foto1_wc420i.png)
+![Image text](https://res.cloudinary.com/drfx5ryus/image/upload/v1661560281/Solution2022/Fotos/foto2_iq0ipu.png)
