@@ -53,7 +53,7 @@ class MenuNavBar extends StatelessWidget {
               image: DecorationImage(
                   fit: BoxFit.fill,
                   image: NetworkImage(
-                      'https://firebasestorage.googleapis.com/v0/b/api-hackunica.appspot.com/o/fotos%2Fwave-ultimate.png?alt=media&token=943364ec-1ec4-490f-93b7-f361768b870b')),
+                      'https://firebasestorage.googleapis.com/v0/b/educa-app-6f86a.appspot.com/o/assets%2FBanner.png?alt=media&token=cebdf895-2324-4603-a91b-ec8e969e068f')),
             ),
           ),
           ListTile(

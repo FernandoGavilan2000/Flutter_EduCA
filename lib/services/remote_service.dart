@@ -5,7 +5,7 @@ import 'package:flutter_educa/models/videos.dart';
 import 'package:http/http.dart' as http;
 
 class RemoteService {
-  String URL_BASE = "https://educa-350705.uc.r.appspot.com/";
+  String URL_BASE = "https://educa-app.up.railway.app/";
 
   Future<List<Videos>?> getVideos(String course) async {
     var client = http.Client();
